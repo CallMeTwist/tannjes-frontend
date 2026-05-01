@@ -12,10 +12,20 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['Outfit', 'system-ui', 'sans-serif'],
-        body: ['Figtree', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
+        brand: {
+          pink: "#E11D74",
+          "pink-soft": "#FFE4F0",
+          "pink-deep": "#B01560",
+          navy: "#0B1B33",
+          slate: "#475569",
+          cream: "#FAF7F4",
+          success: "#10B981",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
