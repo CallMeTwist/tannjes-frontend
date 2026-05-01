@@ -1,71 +1,59 @@
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { services } from "@/data/services";
 
-export const Footer = () => {
-  return (
-    <footer className="bg-foreground text-background pt-20 pb-10 px-6 md:px-10">
-      <div className="container mx-auto">
-        <div className="grid md:grid-cols-4 gap-12 pb-12 border-b border-background/10">
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="h-9 w-9 rounded-2xl bg-gradient-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-display font-bold text-sm">T</span>
-              </div>
-              <p className="font-display font-semibold text-lg">Tannjes Clinics</p>
-            </div>
-            <p className="text-background/60 text-sm leading-relaxed">
-              Premium concierge healthcare. Compassionate care delivered to your door, 24/7.
-            </p>
-            <div className="flex gap-3 pt-2">
-              {[Facebook, Instagram, Twitter, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" aria-label="social"
-                  className="h-9 w-9 rounded-full bg-background/10 hover:bg-primary flex items-center justify-center transition-colors">
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
-          </div>
+const year = new Date().getFullYear();
 
-          <div>
-            <p className="font-display font-semibold mb-4">Quick Links</p>
-            <ul className="space-y-2 text-background/60 text-sm">
-              {["About", "Services", "Specialties", "How it works", "Contact"].map((l) => (
-                <li key={l}><a href={`#${l.toLowerCase().replace(/\s/g, "")}`} className="hover:text-primary-glow transition-colors">{l}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="font-display font-semibold mb-4">Services</p>
-            <ul className="space-y-2 text-background/60 text-sm">
-              {["Doctor at Home", "Geriatrics Care", "Skilled Nursing", "Palliative Care", "Newborn Care"].map((l) => (
-                <li key={l}><a href="#services" className="hover:text-primary-glow transition-colors">{l}</a></li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="font-display font-semibold mb-4">Contact</p>
-            <ul className="space-y-2 text-background/60 text-sm">
-              <li>Drive 2, 1st Crescent, 3rd Avenue,<br/>House 38, Prince and Princess Estate,<br/>Kaura District, Abuja</li>
-              <li className="pt-2">+234 800 000 0000</li>
-              <li>care@tannjesclinics.com</li>
-            </ul>
-          </div>
+export const Footer = () => (
+  <footer className="bg-brand-navy text-white">
+    <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4 lg:px-8">
+      <div>
+        <div className="flex items-center gap-2">
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-pink font-bold">T</span>
+          <span className="font-display text-lg font-bold">Tannjes Clinics</span>
         </div>
-
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 text-sm text-background/50">
-          <p>© {new Date().getFullYear()} Tannjes Clinics Limited. All rights reserved.</p>
-          <p>Crafted with care in Abuja, Nigeria.</p>
+        <p className="mt-3 text-sm text-white/75">Your health, your call. Premium medical concierge — 24/7 in Abuja and beyond.</p>
+        <p className="mt-3 text-xs text-white/55">RC: 1355314</p>
+      </div>
+      <div>
+        <h4 className="text-sm font-semibold uppercase tracking-wider text-brand-pink">Quick Links</h4>
+        <ul className="mt-4 space-y-2 text-sm text-white/80">
+          <li><a href="#about" className="hover:text-white">About</a></li>
+          <li><a href="#services" className="hover:text-white">Services</a></li>
+          <li><a href="#departments" className="hover:text-white">Departments</a></li>
+          <li><a href="#team" className="hover:text-white">Team</a></li>
+          <li><a href="#contact" className="hover:text-white">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 className="text-sm font-semibold uppercase tracking-wider text-brand-pink">Services</h4>
+        <ul className="mt-4 space-y-2 text-sm text-white/80">
+          {services.map((s) => (
+            <li key={s.slug}>
+              <a href="#services" className="hover:text-white">{s.title}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h4 className="text-sm font-semibold uppercase tracking-wider text-brand-pink">Contact</h4>
+        <p className="mt-4 text-sm text-white/80">
+          Drive 2, 1st Crescent, 3rd Avenue, House 38<br />
+          Prince and Princess Estate, Kaura District, Abuja
+        </p>
+        <p className="mt-3 text-sm text-white/80">+234 701 909 0013<br />+234 708 611 3160</p>
+        <p className="mt-3 text-sm text-white/80">tannjes03@gmail.com</p>
+        <div className="mt-4 flex gap-3 text-white/70">
+          <a href="#" aria-label="Facebook" className="hover:text-brand-pink"><Facebook className="h-5 w-5" /></a>
+          <a href="#" aria-label="Instagram" className="hover:text-brand-pink"><Instagram className="h-5 w-5" /></a>
+          <a href="#" aria-label="Twitter" className="hover:text-brand-pink"><Twitter className="h-5 w-5" /></a>
+          <a href="#" aria-label="LinkedIn" className="hover:text-brand-pink"><Linkedin className="h-5 w-5" /></a>
         </div>
       </div>
+    </div>
+    <div className="border-t border-white/10 py-5 text-center text-xs text-white/55">
+      © {year} Tannjes Clinics Limited. All rights reserved.
+    </div>
+  </footer>
+);
 
-      {/* WhatsApp floating */}
-      <a href="https://wa.me/2348000000000" target="_blank" rel="noopener"
-        className="fixed bottom-6 right-6 z-40 h-14 w-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-glow hover:scale-110 transition-transform">
-        <svg viewBox="0 0 24 24" className="h-7 w-7" fill="currentColor">
-          <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1s-.8.9-1 1.1c-.2.2-.4.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.4.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.4 1.1 2.8 1.2 3c.1.2 2.1 3.2 5 4.4.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/>
-        </svg>
-      </a>
-    </footer>
-  );
-};
+export default Footer;

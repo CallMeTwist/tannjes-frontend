@@ -1,110 +1,127 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { toast } from "sonner";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { SectionHeading } from "@/components/shared/SectionHeading";
+import { buildWhatsAppUrl, buildMailtoUrl } from "@/lib/contact";
 
 const schema = z.object({
-  name: z.string().trim().min(2, "Please enter your name").max(100),
-  email: z.string().trim().email("Invalid email").max(255),
-  phone: z.string().trim().min(7, "Phone is required").max(30),
-  message: z.string().trim().min(5, "Tell us a bit more").max(1000),
+  name: z.string().min(1, "Name is required"),
+  phone: z.string().min(7, "Phone is required"),
+  email: z.string().email().optional().or(z.literal("")),
+  message: z.string().min(1, "Message is required"),
 });
+type Vals = z.infer<typeof schema>;
 
 export const Contact = () => {
-  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState<Vals | null>(null);
+  const { register, handleSubmit, formState: { errors } } = useForm<Vals>({ resolver: zodResolver(schema) });
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const fd = new FormData(e.currentTarget);
-    const data = Object.fromEntries(fd) as Record<string, string>;
-    const r = schema.safeParse(data);
-    if (!r.success) {
-      toast.error(r.error.issues[0].message);
-      return;
-    }
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      toast.success("Thank you! We'll be in touch shortly.");
-      (e.target as HTMLFormElement).reset();
-    }, 800);
-  };
+  const buildBody = (v: Vals) => `Name: ${v.name}\nPhone: ${v.phone}\nEmail: ${v.email || "—"}\n\n${v.message}`;
 
   return (
-    <section id="contact" className="section-padding bg-gradient-soft">
-      <div className="container mx-auto grid lg:grid-cols-2 gap-12">
-        <div className="space-y-8">
-          <div>
-            <p className="text-sm uppercase tracking-[0.25em] text-primary font-semibold mb-4">Get in touch</p>
-            <h2 className="text-4xl md:text-5xl font-display font-semibold leading-tight">
-              Let's talk about <span className="gradient-text">your care.</span>
-            </h2>
-            <p className="text-lg text-muted-foreground mt-4 max-w-md">
-              Reach us 24/7 — book a visit, ask a question, or request a quote.
-            </p>
+    <section id="contact" className="bg-brand-cream py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SectionHeading eyebrow="Get in Touch" title="We're a phone call away — 24/7." />
+        <div className="mt-14 grid gap-10 md:grid-cols-2">
+          <div className="space-y-4">
+            <div className="flex gap-3">
+              <MapPin className="h-5 w-5 shrink-0 text-brand-pink" />
+              <p className="text-brand-navy">
+                Drive 2, 1st Crescent, 3rd Avenue, House 38<br />
+                Prince and Princess Estate, Kaura District, Abuja
+              </p>
+            </div>
+            <div className="flex gap-3">
+              <Phone className="h-5 w-5 shrink-0 text-brand-pink" />
+              <p className="text-brand-navy">
+                +234 701 909 0013<br />+234 708 611 3160
+              </p>
+            </div>
+            <div className="flex gap-3">
+              <Mail className="h-5 w-5 shrink-0 text-brand-pink" />
+              <p className="text-brand-navy">tannjes03@gmail.com</p>
+            </div>
+            <div className="overflow-hidden rounded-2xl shadow ring-1 ring-brand-pink-soft">
+              <iframe
+                title="Tannjes Clinics location"
+                src="https://www.google.com/maps?q=Prince+and+Princess+Estate+Kaura+Abuja&output=embed"
+                width="100%"
+                height="280"
+                style={{ border: 0 }}
+                loading="lazy"
+              />
+            </div>
           </div>
-
-          <div className="space-y-5">
-            {[
-              { icon: MapPin, label: "Visit", value: "Drive 2, 1st Crescent, 3rd Avenue, House 38, Prince and Princess Estate, Kaura District, Abuja" },
-              { icon: Phone, label: "Call", value: "+234 800 000 0000  ·  +234 901 000 0000" },
-              { icon: Mail, label: "Email", value: "care@tannjesclinics.com" },
-              { icon: Clock, label: "Hours", value: "Available 24 hours, 7 days a week" },
-            ].map((it) => (
-              <div key={it.label} className="flex gap-4 p-4 rounded-2xl bg-card border border-border">
-                <div className="h-11 w-11 rounded-xl bg-primary-soft flex items-center justify-center flex-shrink-0">
-                  <it.icon className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground">{it.label}</p>
-                  <p className="font-medium text-foreground/90">{it.value}</p>
-                </div>
+          <form
+            onSubmit={handleSubmit((v) => setSubmitted(v))}
+            className="grid gap-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-brand-pink-soft"
+          >
+            <label className="block text-sm">
+              <span className="font-medium text-brand-navy">Full name</span>
+              <input
+                {...register("name")}
+                className="mt-1 w-full rounded-lg border border-brand-navy/15 px-3 py-2 outline-none focus:border-brand-pink"
+              />
+              {errors.name && <span className="text-xs text-brand-pink">{errors.name.message}</span>}
+            </label>
+            <label className="block text-sm">
+              <span className="font-medium text-brand-navy">Phone</span>
+              <input
+                {...register("phone")}
+                className="mt-1 w-full rounded-lg border border-brand-navy/15 px-3 py-2 outline-none focus:border-brand-pink"
+              />
+              {errors.phone && <span className="text-xs text-brand-pink">{errors.phone.message}</span>}
+            </label>
+            <label className="block text-sm">
+              <span className="font-medium text-brand-navy">Email (optional)</span>
+              <input
+                type="email"
+                {...register("email")}
+                className="mt-1 w-full rounded-lg border border-brand-navy/15 px-3 py-2 outline-none focus:border-brand-pink"
+              />
+            </label>
+            <label className="block text-sm">
+              <span className="font-medium text-brand-navy">Message</span>
+              <textarea
+                rows={4}
+                {...register("message")}
+                className="mt-1 w-full rounded-lg border border-brand-navy/15 px-3 py-2 outline-none focus:border-brand-pink"
+              />
+              {errors.message && <span className="text-xs text-brand-pink">{errors.message.message}</span>}
+            </label>
+            {!submitted ? (
+              <Button type="submit" className="bg-brand-pink hover:bg-brand-pink-deep text-white">
+                Send Message
+              </Button>
+            ) : (
+              <div className="grid gap-3 sm:grid-cols-2">
+                <a
+                  href={buildWhatsAppUrl(buildBody(submitted))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700"
+                >
+                  <MessageCircle className="h-4 w-4" /> Send via WhatsApp
+                </a>
+                <a
+                  href={buildMailtoUrl({
+                    subject: "Tannjes Clinics — website message",
+                    body: buildBody(submitted),
+                  })}
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-navy px-4 py-2 text-sm font-semibold text-white hover:bg-brand-navy/90"
+                >
+                  <Mail className="h-4 w-4" /> Send via Email
+                </a>
               </div>
-            ))}
-          </div>
-
-          <div className="rounded-3xl overflow-hidden border border-border shadow-soft">
-            <iframe
-              title="Tannjes Clinics location"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=7.39%2C8.97%2C7.50%2C9.04&amp;layer=mapnik"
-              className="w-full h-64"
-              loading="lazy"
-            />
-          </div>
+            )}
+          </form>
         </div>
-
-        <form onSubmit={onSubmit} className="glass-card rounded-[2rem] p-8 md:p-10 space-y-5 h-fit">
-          <h3 className="font-display text-2xl font-semibold">Book an appointment</h3>
-          <p className="text-sm text-muted-foreground -mt-3">We respond within 30 minutes.</p>
-
-          <div className="space-y-2">
-            <Label htmlFor="name">Full name</Label>
-            <Input id="name" name="name" placeholder="Jane Doe" maxLength={100} required />
-          </div>
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" name="email" type="email" placeholder="jane@email.com" maxLength={255} required />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="phone">Phone</Label>
-              <Input id="phone" name="phone" placeholder="+234..." maxLength={30} required />
-            </div>
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="message">How can we help?</Label>
-            <Textarea id="message" name="message" rows={5} maxLength={1000}
-              placeholder="Tell us about the care you need..." required />
-          </div>
-          <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
-            {loading ? "Sending..." : "Request Appointment"}
-          </Button>
-        </form>
       </div>
     </section>
   );
 };
+
+export default Contact;

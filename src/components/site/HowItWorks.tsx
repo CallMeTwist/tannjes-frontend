@@ -1,38 +1,37 @@
-import { PhoneCall, UserCheck, HeartPulse } from "lucide-react";
+import { PhoneCall, ClipboardList, HeartHandshake } from "lucide-react";
+import { Reveal } from "@/components/shared/Reveal";
+import { SectionHeading } from "@/components/shared/SectionHeading";
 
 const steps = [
-  { icon: PhoneCall, title: "Contact or Book", desc: "Call our 24/7 line or fill the booking form online." },
-  { icon: UserCheck, title: "Get Matched", desc: "We pair you with the right medical expert for your needs." },
-  { icon: HeartPulse, title: "Receive Care", desc: "At home, in a hotel, your workplace, or our clinic." },
+  { icon: PhoneCall, title: "Reach out", body: "Call, WhatsApp, or fill our 60-second form. We pick up 24/7." },
+  { icon: ClipboardList, title: "We assess and match", body: "We pair you with the right physician, nurse, or specialist for your need." },
+  { icon: HeartHandshake, title: "Care delivered", body: "Concierge care arrives at your door — and stays with you through recovery." },
 ];
 
-export const HowItWorks = () => {
-  return (
-    <section id="how" className="section-padding">
-      <div className="container mx-auto">
-        <div className="max-w-2xl mx-auto text-center mb-16">
-          <p className="text-sm uppercase tracking-[0.25em] text-primary font-semibold mb-4">How it works</p>
-          <h2 className="text-4xl md:text-5xl font-display font-semibold leading-tight">
-            Care in <span className="gradient-text">three simple steps.</span>
-          </h2>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8 relative">
-          <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-          {steps.map((s, i) => (
-            <div key={s.title} className="relative text-center group">
-              <div className="relative mx-auto mb-6 h-24 w-24 rounded-full bg-gradient-hero flex items-center justify-center shadow-soft group-hover:scale-105 transition-transform">
-                <s.icon className="h-9 w-9 text-primary" />
-                <span className="absolute -top-2 -right-2 h-8 w-8 rounded-full bg-gradient-primary text-primary-foreground text-sm font-display font-bold flex items-center justify-center shadow-glow">
-                  {i + 1}
-                </span>
-              </div>
-              <h3 className="font-display text-xl font-semibold mb-2">{s.title}</h3>
-              <p className="text-muted-foreground max-w-xs mx-auto">{s.desc}</p>
+export const HowItWorks = () => (
+  <section id="how-it-works" className="bg-white py-20">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionHeading eyebrow="How It Works" title="Three steps to expert care." />
+      <div className="relative mt-14 grid gap-10 md:grid-cols-3">
+        <div
+          className="absolute left-0 right-0 top-7 hidden h-px border-t-2 border-dashed border-brand-pink-soft md:block"
+          aria-hidden
+        />
+        {steps.map((s, i) => (
+          <Reveal key={s.title} delay={i * 0.08}>
+            <div className="relative rounded-2xl bg-white p-6 text-center shadow-sm ring-1 ring-brand-pink-soft/60">
+              <span className="relative z-10 mx-auto grid h-14 w-14 place-items-center rounded-full bg-brand-pink text-white shadow-lg ring-4 ring-white">
+                <s.icon className="h-6 w-6" />
+              </span>
+              <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-brand-pink">Step {i + 1}</p>
+              <h3 className="mt-1 font-display text-xl font-bold text-brand-navy">{s.title}</h3>
+              <p className="mt-2 text-sm text-brand-slate">{s.body}</p>
             </div>
-          ))}
-        </div>
+          </Reveal>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
+
+export default HowItWorks;
