@@ -1,91 +1,97 @@
+import { motion, useReducedMotion } from "framer-motion";
+import { Phone, CalendarCheck, ShieldCheck, Clock, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Phone, Calendar, ShieldCheck, Heart, Clock } from "lucide-react";
 import heroImg from "@/assets/hero-doctor.jpg";
 
 export const Hero = () => {
+  const reduce = useReducedMotion();
   return (
-    <section id="top" className="relative pt-32 md:pt-40 pb-20 overflow-hidden bg-gradient-aurora">
-      <div className="blob bg-primary-soft w-[420px] h-[420px] -top-20 -left-20 animate-float-slow" />
-      <div className="blob bg-sky-soft w-[500px] h-[500px] top-40 -right-32 animate-float" />
-
-      <div className="container mx-auto grid lg:grid-cols-2 gap-12 items-center relative">
-        <div className="space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card animate-fade-up">
-            <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-xs font-medium tracking-wide uppercase text-foreground/80">
-              24/7 Medical Concierge — Abuja
-            </span>
-          </div>
-
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-semibold leading-[1.05] tracking-tight animate-fade-up delay-100">
-            Your Health, <br />
-            <span className="gradient-text">Our Call.</span>
-            <br />
-            <span className="text-foreground/90">Compassionate Care</span>
-            <br />
-            <span className="text-foreground/60 font-light italic">anytime, anywhere.</span>
+    <section
+      id="top"
+      className="relative overflow-hidden bg-gradient-to-b from-brand-pink-soft/40 via-white to-white pt-28 pb-16 md:pt-36 md:pb-24"
+    >
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 md:grid-cols-12 lg:px-8">
+        <div className="md:col-span-7">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-pink shadow-sm ring-1 ring-brand-pink-soft">
+            <span className="h-1.5 w-1.5 rounded-full bg-brand-pink" />
+            Medical Concierge 24/7
+          </span>
+          <h1 className="mt-5 font-display text-4xl font-extrabold leading-tight text-brand-navy sm:text-5xl md:text-6xl">
+            Your health, <span className="text-brand-pink">your call.</span>
           </h1>
-
-          <p className="text-lg md:text-xl text-muted-foreground max-w-xl animate-fade-up delay-200">
-            Premium medical concierge services delivered to your home, hotel, or workplace
-            in Abuja and beyond — with compassion, precision, and dignity.
+          <p className="mt-5 max-w-xl text-base text-brand-slate sm:text-lg">
+            Compassionate, expert medical care delivered to your home, hotel, or place of work — anywhere in Abuja, anytime.
           </p>
-
-          <div className="flex flex-wrap gap-4 animate-fade-up delay-300">
-            <Button variant="hero" size="xl" asChild>
-              <a href="#contact"><Calendar className="mr-2 h-5 w-5" /> Book Appointment</a>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Button asChild size="lg" className="bg-brand-pink hover:bg-brand-pink-deep text-white">
+              <a href="#book">
+                <CalendarCheck className="mr-2 h-5 w-5" /> Book a Doctor
+              </a>
             </Button>
-            <Button variant="softOutline" size="xl" asChild>
-              <a href="tel:+2348000000000"><Phone className="mr-2 h-5 w-5" /> Call Now</a>
+            <Button asChild size="lg" variant="outline" className="border-brand-navy/20 text-brand-navy">
+              <a href="tel:+2347019090013">
+                <Phone className="mr-2 h-5 w-5" /> +234 701 909 0013
+              </a>
             </Button>
           </div>
-
-          <div className="flex flex-wrap gap-6 pt-6 animate-fade-up delay-500">
-            {[
-              { icon: Clock, label: "24/7 Availability" },
-              { icon: ShieldCheck, label: "Licensed Clinicians" },
-              { icon: Heart, label: "Compassion First" },
-            ].map((b) => (
-              <div key={b.label} className="flex items-center gap-2 text-sm text-foreground/70">
-                <b.icon className="h-4 w-4 text-primary" /> {b.label}
-              </div>
-            ))}
+          <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-brand-slate">
+            <span className="inline-flex items-center gap-1.5">
+              <BadgeCheck className="h-4 w-4 text-brand-pink" /> RC: 1355314
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Clock className="h-4 w-4 text-brand-pink" /> 24/7 Availability
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <ShieldCheck className="h-4 w-4 text-brand-pink" /> Licensed Physicians
+            </span>
           </div>
         </div>
 
-        <div className="relative animate-scale-in delay-200">
-          <div className="absolute -inset-6 bg-gradient-primary opacity-20 blur-3xl rounded-[3rem]" />
-          <div className="relative rounded-[2.5rem] overflow-hidden shadow-elegant border border-white/60">
+        <div className="relative md:col-span-5">
+          {!reduce && (
+            <motion.div
+              aria-hidden
+              className="absolute -inset-6 -z-10 rounded-[40%] bg-gradient-to-br from-brand-pink/30 via-brand-pink-soft to-white blur-2xl"
+              animate={{ borderRadius: ["40%", "55% 45% 50% 60%", "45% 55% 40% 60%", "40%"] }}
+              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            />
+          )}
+          <div className="relative overflow-hidden rounded-3xl shadow-2xl ring-1 ring-brand-navy/5">
             <img
               src={heroImg}
-              alt="Compassionate Tannjes nurse caring for an elderly patient at home"
-              width={1536}
-              height={1280}
-              className="w-full h-[520px] md:h-[620px] object-cover"
+              alt="Tannjes Clinics doctor"
+              width={720}
+              height={900}
+              className="h-full w-full object-cover"
             />
           </div>
-
-          {/* floating cards */}
-          <div className="absolute -left-4 md:-left-10 bottom-10 glass-card rounded-2xl p-4 flex items-center gap-3 animate-float">
-            <div className="h-11 w-11 rounded-full bg-primary-soft flex items-center justify-center">
-              <Heart className="h-5 w-5 text-primary" />
+          <motion.div
+            initial={reduce ? false : { opacity: 0, y: 12 }}
+            animate={reduce ? undefined : { opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="absolute -right-3 top-6 max-w-[220px] rotate-[-2deg] rounded-2xl bg-white/90 p-4 shadow-lg backdrop-blur ring-1 ring-brand-pink-soft"
+          >
+            <div className="flex items-center gap-2 text-brand-navy">
+              <Clock className="h-5 w-5 text-brand-pink" />
+              <span className="text-sm font-semibold">24/7 Concierge</span>
             </div>
-            <div>
-              <p className="text-xs text-muted-foreground">Patients cared for</p>
-              <p className="font-display font-semibold">12,400+</p>
-            </div>
-          </div>
-          <div className="absolute -right-2 md:-right-8 top-10 glass-card rounded-2xl p-4 flex items-center gap-3 animate-float-slow">
-            <div className="h-11 w-11 rounded-full bg-sky-soft flex items-center justify-center">
-              <ShieldCheck className="h-5 w-5 text-sky" />
-            </div>
-            <div>
-              <p className="text-xs text-muted-foreground">Response time</p>
-              <p className="font-display font-semibold">&lt; 30 min</p>
-            </div>
-          </div>
+            <span className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-700">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> Next available: Today
+            </span>
+          </motion.div>
+          <motion.div
+            initial={reduce ? false : { opacity: 0, y: 12 }}
+            animate={reduce ? undefined : { opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="absolute -left-3 bottom-6 max-w-[200px] rotate-[2deg] rounded-2xl bg-white/90 p-4 shadow-lg backdrop-blur ring-1 ring-brand-pink-soft"
+          >
+            <p className="text-2xl font-extrabold text-brand-navy">16+</p>
+            <p className="text-xs text-brand-slate">Medical specialties under one roof</p>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 };
+
+export default Hero;
