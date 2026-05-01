@@ -15,7 +15,8 @@
       "Bash(npx tsc *)",
       "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"feat: data modules, new Navbar, Hero, StatsStrip\" -q)",
       "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"feat: About, Services, Departments, AppointmentStrip, WhyChoose\" -q)",
-      "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"feat: HowItWorks, Testimonials, TeamPreview, Contact, Footer\" -q)"
+      "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"feat: HowItWorks, Testimonials, TeamPreview, Contact, Footer\" -q)",
+      "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"feat\\(index\\): wire redesigned section order; remove unused CallToAction\" -q)"
     ]
   }
 }
