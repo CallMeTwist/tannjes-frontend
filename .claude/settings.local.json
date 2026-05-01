@@ -3,7 +3,18 @@
     "allow": [
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"chore: initial snapshot before redesign\" -q)"
+      "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"chore: initial snapshot before redesign\" -q)",
+      "Bash(npm install *)",
+      "Bash(npm ls *)",
+      "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"chore: add framer-motion for redesign motion system\" -q)",
+      "Bash(npm run *)",
+      "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"feat\\(theme\\): add TCL brand tokens and premium fonts\" -q)",
+      "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"feat\\(shared\\): add Reveal and SectionHeading\" -q)",
+      "Bash(npx vitest *)",
+      "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"feat\\(shared\\): animated Counter and contact url helpers\" -q)",
+      "Bash(npx tsc *)",
+      "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"feat: data modules, new Navbar, Hero, StatsStrip\" -q)",
+      "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"feat: About, Services, Departments, AppointmentStrip, WhyChoose\" -q)"
     ]
   }
 }
