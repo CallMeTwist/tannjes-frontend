@@ -3,7 +3,13 @@ import t2 from "@/assets/testimonial-2.jpg";
 import t3 from "@/assets/testimonial-3.jpg";
 import t4 from "@/assets/cta-family.jpg";
 
-export type TeamMember = { name: string; role: string; bio: string; image: string };
+export type TeamMember = {
+  name: string;
+  role: string;
+  bio: string;
+  image: string;
+  credentials?: string;
+};
 
 export const team: TeamMember[] = [
   { name: "Dr. Adaeze Okonkwo", role: "Medical Director, General Medicine", bio: "20+ years leading concierge medical care in Abuja and beyond.", image: t1 },
