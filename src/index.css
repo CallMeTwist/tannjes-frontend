@@ -117,6 +117,53 @@
     opacity: 0.6;
     pointer-events: none;
   }
+
+  /* Subtle dot grid — for cream / muted sections */
+  .texture-dots {
+    background-image: radial-gradient(rgba(11, 27, 51, 0.13) 1px, transparent 1.4px);
+    background-size: 20px 20px;
+  }
+  .texture-dots-pink {
+    background-image: radial-gradient(rgba(225, 29, 116, 0.20) 1px, transparent 1.4px);
+    background-size: 20px 20px;
+  }
+  .texture-dots-light {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1.4px);
+    background-size: 22px 22px;
+  }
+  /* Diagonal hatch — for navy / dark sections */
+  .texture-hatch {
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0,
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px,
+      transparent 12px
+    );
+  }
+  /* Medical cross pattern — signature texture for hero bands and CTAs */
+  .texture-cross {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'><g fill='none' stroke='rgba(225,29,116,0.18)' stroke-width='1.4'><path d='M22 12v8M22 24v8M12 22h8M24 22h8'/></g></svg>");
+    background-size: 44px 44px;
+  }
+  .texture-cross-light {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'><g fill='none' stroke='rgba(255,255,255,0.14)' stroke-width='1.4'><path d='M22 12v8M22 24v8M12 22h8M24 22h8'/></g></svg>");
+    background-size: 44px 44px;
+  }
+  /* Soft topographic / wave lines for About/WhyChoose */
+  .texture-waves {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='40' viewBox='0 0 120 40'><path d='M0 20 Q15 4 30 20 T60 20 T90 20 T120 20' fill='none' stroke='rgba(225,29,116,0.13)' stroke-width='1.4'/></svg>");
+    background-size: 120px 40px;
+  }
+  /* Subtle noise / grain — adds tactile texture without a strong pattern */
+  .texture-grain {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.04 0 0 0 0 0.10 0 0 0 0 0.20 0 0 0 0.45 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.5'/></svg>");
+  }
+
+  /* Ken Burns slow zoom on images */
+  .kenburns {
+    animation: kenburns 18s ease-in-out infinite alternate;
+  }
 }
 
 @layer utilities {
@@ -163,4 +210,16 @@
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+@keyframes kenburns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.08) translate(-1%, -1%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kenburns { animation: none; }
+}
+
+@keyframes emergencyPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.4); opacity: 0; }
 }
