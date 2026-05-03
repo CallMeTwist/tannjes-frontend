@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/shared/Reveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { team } from "@/data/team";
+import { useTeam } from "@/hooks/useTeam";
 
-export const TeamPreview = () => (
+export const TeamPreview = () => {
+  const team = useTeam();
+  return (
   <section id="team" className="relative overflow-hidden bg-white py-24">
     <div className="absolute inset-0 texture-waves opacity-70" aria-hidden />
     <div className="absolute -right-24 top-12 h-72 w-72 rounded-full bg-sky-soft/80 blur-3xl" aria-hidden />
@@ -48,6 +50,7 @@ export const TeamPreview = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default TeamPreview;

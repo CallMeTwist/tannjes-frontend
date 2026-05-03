@@ -2,10 +2,12 @@ import SiteLayout from "@/components/site/SiteLayout";
 import PageHero from "@/components/shared/PageHero";
 import TeamSlider from "@/components/site/team/TeamSlider";
 import AppointmentStrip from "@/components/site/AppointmentStrip";
-import { team } from "@/data/team";
+import { useTeam } from "@/hooks/useTeam";
 import heroDoctor from "@/assets/hero-doctor.jpg";
 
-const TeamPage = () => (
+const TeamPage = () => {
+  const team = useTeam();
+  return (
   <SiteLayout>
     <PageHero
       eyebrow="Our Team"
@@ -17,6 +19,7 @@ const TeamPage = () => (
     <TeamSlider members={team} />
     <AppointmentStrip />
   </SiteLayout>
-);
+  );
+};
 
 export default TeamPage;
