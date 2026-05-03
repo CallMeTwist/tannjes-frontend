@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Phone, Siren } from "lucide-react";
 import { TCL_PHONE_PRIMARY, TCL_PHONE_SECONDARY } from "@/lib/contact";
 
@@ -23,7 +23,11 @@ export const EmergencySplash = () => {
     return sessionStorage.getItem(FLAG) === null;
   });
   const continueRef = useRef<HTMLButtonElement>(null);
-  const autoDismissTimerRef = useRef<ReturnType<typeof window.setTimeout> | null>(null);
+
+  const dismiss = useCallback(() => {
+    sessionStorage.setItem(FLAG, "1");
+    setOpen(false);
+  }, []);
 
   useEffect(() => {
     if (open) {
@@ -34,28 +38,16 @@ export const EmergencySplash = () => {
   useEffect(() => {
     if (!open) return;
     const delay = prefersReducedMotion() ? AUTO_DISMISS_MS_REDUCED_MOTION : AUTO_DISMISS_MS;
-    autoDismissTimerRef.current = window.setTimeout(() => dismiss(), delay);
+    const timer = window.setTimeout(() => dismiss(), delay);
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") dismiss();
     };
     window.addEventListener("keydown", onKey);
     return () => {
-      if (autoDismissTimerRef.current !== null) {
-        window.clearTimeout(autoDismissTimerRef.current);
-        autoDismissTimerRef.current = null;
-      }
+      window.clearTimeout(timer);
       window.removeEventListener("keydown", onKey);
     };
-  }, [open]);
-
-  const dismiss = () => {
-    if (autoDismissTimerRef.current !== null) {
-      window.clearTimeout(autoDismissTimerRef.current);
-      autoDismissTimerRef.current = null;
-    }
-    sessionStorage.setItem(FLAG, "1");
-    setOpen(false);
-  };
+  }, [open, dismiss]);
 
   if (!open) return null;
 
@@ -81,6 +73,7 @@ export const EmergencySplash = () => {
         </p>
         <a
           href={`tel:${TCL_PHONE_PRIMARY}`}
+          onClick={() => window.setTimeout(dismiss, 300)}
           className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-brand-pink px-5 py-3 text-base font-semibold text-white shadow-lg shadow-brand-pink/30 hover:bg-brand-pink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
         >
           <Phone className="h-5 w-5" /> {formatNumber(TCL_PHONE_PRIMARY)}
