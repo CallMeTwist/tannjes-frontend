@@ -1,12 +1,18 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { describe, it, expect } from "vitest";
 import { Contact } from "./Contact";
+
+const renderWithClient = (ui: React.ReactElement) => {
+  const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+  return render(<QueryClientProvider client={client}>{ui}</QueryClientProvider>);
+};
 
 describe("Contact form", () => {
   it("blocks submit until required fields are filled, then exposes WhatsApp + Email actions", async () => {
     const user = userEvent.setup();
-    render(<Contact />);
+    renderWithClient(<Contact />);
     await user.click(screen.getByRole("button", { name: /send message/i }));
     expect(await screen.findByText(/name is required/i)).toBeInTheDocument();
 

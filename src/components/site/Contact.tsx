@@ -6,6 +6,7 @@ import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { buildWhatsAppUrl, buildMailtoUrl } from "@/lib/contact";
+import { useSettings } from "@/hooks/useSettings";
 
 const schema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -16,6 +17,7 @@ const schema = z.object({
 type Vals = z.infer<typeof schema>;
 
 export const Contact = () => {
+  const settings = useSettings();
   const [submitted, setSubmitted] = useState<Vals | null>(null);
   const { register, handleSubmit, formState: { errors } } = useForm<Vals>({ resolver: zodResolver(schema) });
 
@@ -29,20 +31,17 @@ export const Contact = () => {
           <div className="space-y-4">
             <div className="flex gap-3">
               <MapPin className="h-5 w-5 shrink-0 text-brand-pink" />
-              <p className="text-brand-navy">
-                Drive 2, 1st Crescent, 3rd Avenue, House 38<br />
-                Prince and Princess Estate, Kaura District, Abuja
-              </p>
+              <p className="text-brand-navy">{settings.address}</p>
             </div>
             <div className="flex gap-3">
               <Phone className="h-5 w-5 shrink-0 text-brand-pink" />
               <p className="text-brand-navy">
-                +234 701 909 0013<br />+234 708 611 3160
+                {settings.phone_primary}<br />{settings.phone_secondary}
               </p>
             </div>
             <div className="flex gap-3">
               <Mail className="h-5 w-5 shrink-0 text-brand-pink" />
-              <p className="text-brand-navy">tannjes03@gmail.com</p>
+              <p className="text-brand-navy">{settings.email}</p>
             </div>
             <div className="overflow-hidden rounded-2xl shadow ring-1 ring-brand-pink-soft">
               <iframe
