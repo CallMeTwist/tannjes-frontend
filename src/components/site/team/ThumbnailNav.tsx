@@ -29,7 +29,7 @@ export const ThumbnailNav = ({ members, activeIndex, onSelect }: Props) => (
             <img
               src={m.image}
               alt=""
-              aria-hidden
+              aria-hidden="true"
               loading="lazy"
               className="h-full w-full object-cover"
             />
