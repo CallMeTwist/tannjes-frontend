@@ -46,7 +46,6 @@ export const EmergencySplash = () => {
       }
       window.removeEventListener("keydown", onKey);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   const dismiss = () => {
