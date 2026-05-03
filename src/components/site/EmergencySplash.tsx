@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Phone, Siren } from "lucide-react";
-import { TCL_PHONE_PRIMARY, TCL_PHONE_SECONDARY } from "@/lib/contact";
+import { useSettings } from "@/hooks/useSettings";
 
 const FLAG = "tcl-emergency-splash-seen";
 const AUTO_DISMISS_MS = 3000;
@@ -18,6 +18,7 @@ const formatNumber = (raw: string) => {
 };
 
 export const EmergencySplash = () => {
+  const settings = useSettings();
   const [open, setOpen] = useState<boolean>(() => {
     if (typeof window === "undefined") return false;
     return sessionStorage.getItem(FLAG) === null;
@@ -72,17 +73,17 @@ export const EmergencySplash = () => {
           Our team is reachable 24/7. Tap to call now.
         </p>
         <a
-          href={`tel:${TCL_PHONE_PRIMARY}`}
+          href={`tel:${settings.phone_primary}`}
           onClick={() => window.setTimeout(dismiss, 300)}
           className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-brand-pink px-5 py-3 text-base font-semibold text-white shadow-lg shadow-brand-pink/30 hover:bg-brand-pink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
         >
-          <Phone className="h-5 w-5" /> {formatNumber(TCL_PHONE_PRIMARY)}
+          <Phone className="h-5 w-5" /> {formatNumber(settings.phone_primary)}
         </a>
         <a
-          href={`tel:${TCL_PHONE_SECONDARY}`}
+          href={`tel:${settings.phone_secondary}`}
           className="mt-3 text-sm text-white/80 hover:text-white"
         >
-          or {formatNumber(TCL_PHONE_SECONDARY)}
+          or {formatNumber(settings.phone_secondary)}
         </a>
         <button
           ref={continueRef}
