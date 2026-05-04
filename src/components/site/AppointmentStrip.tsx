@@ -25,8 +25,11 @@ export const AppointmentStrip = () => {
   };
 
   return (
-    <section id="book" className="bg-brand-pink py-16 text-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="book" className="relative overflow-hidden bg-gradient-to-br from-brand-pink via-brand-pink-deep to-[#7a0f44] py-16 text-white">
+      <div className="absolute inset-0 texture-cross-light opacity-90" aria-hidden />
+      <div className="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-white/10 blur-3xl" aria-hidden />
+      <div className="absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-white/10 blur-3xl" aria-hidden />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-8 md:grid-cols-5">
           <div className="md:col-span-2">
             <h2 className="font-display text-3xl font-extrabold sm:text-4xl">Book a doctor in under 60 seconds.</h2>

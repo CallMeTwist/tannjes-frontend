@@ -24,8 +24,11 @@ describe("EmergencySplash", () => {
     vi.useRealTimers();
   });
 
-  it("renders the dialog when the session flag is absent", () => {
+  it("renders the dialog after the appear delay when the flag is absent", () => {
     renderSplash();
+    act(() => {
+      vi.advanceTimersByTime(1000);
+    });
     expect(screen.getByRole("dialog")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /\+234 701 909 0013/ })).toHaveAttribute(
       "href",
@@ -36,11 +39,17 @@ describe("EmergencySplash", () => {
   it("renders nothing when the session flag is set", () => {
     sessionStorage.setItem(FLAG, "1");
     renderSplash();
+    act(() => {
+      vi.advanceTimersByTime(2000);
+    });
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
   it("sets the flag and unmounts on Continue tap", () => {
     renderSplash();
+    act(() => {
+      vi.advanceTimersByTime(1000);
+    });
     act(() => {
       fireEvent.click(screen.getByRole("button", { name: /continue to site/i }));
     });
@@ -51,21 +60,28 @@ describe("EmergencySplash", () => {
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
-  it("auto-dismisses after 3 seconds and sets the flag", () => {
+  it("dismisses on Escape key", () => {
     renderSplash();
-    expect(screen.getByRole("dialog")).toBeInTheDocument();
     act(() => {
-      vi.advanceTimersByTime(3000);
+      vi.advanceTimersByTime(1000);
+    });
+    act(() => {
+      fireEvent.keyDown(window, { key: "Escape" });
+    });
+    act(() => {
       vi.advanceTimersByTime(400);
     });
     expect(sessionStorage.getItem(FLAG)).toBe("1");
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
-  it("dismisses on Escape key", () => {
+  it("dismisses when the backdrop is clicked", () => {
     renderSplash();
     act(() => {
-      fireEvent.keyDown(window, { key: "Escape" });
+      vi.advanceTimersByTime(1000);
+    });
+    act(() => {
+      fireEvent.click(screen.getByRole("button", { name: /dismiss emergency notice/i }));
     });
     act(() => {
       vi.advanceTimersByTime(400);

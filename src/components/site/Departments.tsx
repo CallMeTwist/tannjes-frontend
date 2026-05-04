@@ -3,8 +3,9 @@ import { Reveal } from "@/components/shared/Reveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 
 export const Departments = () => (
-  <section id="departments" className="bg-white py-20">
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <section id="departments" className="relative overflow-hidden bg-white py-20">
+    <div className="absolute inset-0 texture-cross opacity-80" aria-hidden />
+    <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <SectionHeading
         eyebrow="Our Departments"
         title="Sixteen specialties. One trusted partner."

@@ -1,33 +1,33 @@
-import Navbar from "@/components/site/Navbar";
+import SiteLayout from "@/components/site/SiteLayout";
+import SEO from "@/components/shared/SEO";
 import Hero from "@/components/site/Hero";
 import StatsStrip from "@/components/site/StatsStrip";
 import About from "@/components/site/About";
 import Services from "@/components/site/Services";
-import Departments from "@/components/site/Departments";
 import AppointmentStrip from "@/components/site/AppointmentStrip";
-import WhyChoose from "@/components/site/WhyChoose";
 import HowItWorks from "@/components/site/HowItWorks";
+import WhyChoose from "@/components/site/WhyChoose";
+import FacilitiesTeaser from "@/components/site/FacilitiesTeaser";
 import Testimonials from "@/components/site/Testimonials";
 import TeamPreview from "@/components/site/TeamPreview";
-import Contact from "@/components/site/Contact";
-import Footer from "@/components/site/Footer";
 
 const Index = () => (
-  <main className="min-h-screen bg-white overflow-x-hidden">
-    <Navbar />
+  <SiteLayout>
+    <SEO
+      title="Tannjes Clinics — Compassionate 24/7 Healthcare in Abuja"
+      description="Premium home-based and hospital medical concierge services in Abuja. Doctors, skilled nursing, geriatrics, paediatrics and more — available 24/7."
+    />
     <Hero />
     <StatsStrip />
     <About />
     <Services />
-    <Departments />
-    <AppointmentStrip />
-    <WhyChoose />
     <HowItWorks />
+    <WhyChoose />
+    <FacilitiesTeaser />
     <Testimonials />
     <TeamPreview />
-    <Contact />
-    <Footer />
-  </main>
+    <AppointmentStrip />
+  </SiteLayout>
 );
 
 export default Index;

@@ -34,9 +34,12 @@ const reasons = [
 ];
 
 export const WhyChoose = () => (
-  <section id="why" className="bg-brand-cream py-20">
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <section id="why" className="relative overflow-hidden bg-brand-cream py-20">
+    <div className="absolute inset-0 texture-dots opacity-70" aria-hidden />
+    <div className="absolute right-0 top-20 h-80 w-80 rounded-full bg-brand-pink-soft/70 blur-3xl" aria-hidden />
+    <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <SectionHeading
+        animate
         eyebrow="Why Tannjes"
         title="The concierge advantage."
         subtitle="Four reasons families across Abuja choose us for the people they love most."
@@ -49,8 +52,15 @@ export const WhyChoose = () => (
                 i % 2 === 1 ? "md:[&>div:first-child]:order-2" : ""
               }`}
             >
-              <div className="overflow-hidden rounded-3xl shadow-xl">
-                <img src={r.image} alt="" className="h-full w-full object-cover" width={640} height={420} />
+              <div className="group relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-white">
+                <img
+                  src={r.image}
+                  alt=""
+                  className="h-full w-full object-cover transition [transition-duration:1500ms] ease-out group-hover:scale-110"
+                  width={640}
+                  height={420}
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-brand-navy/30 via-transparent to-transparent" aria-hidden />
               </div>
               <div>
                 <h3 className="font-display text-2xl font-bold text-brand-navy sm:text-3xl">{r.title}</h3>

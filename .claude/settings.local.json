@@ -16,7 +16,38 @@
       "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"feat: data modules, new Navbar, Hero, StatsStrip\" -q)",
       "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"feat: About, Services, Departments, AppointmentStrip, WhyChoose\" -q)",
       "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"feat: HowItWorks, Testimonials, TeamPreview, Contact, Footer\" -q)",
-      "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"feat\\(index\\): wire redesigned section order; remove unused CallToAction\" -q)"
+      "Bash(git -c user.email=dev@local -c user.name=dev commit -m \"feat\\(index\\): wire redesigned section order; remove unused CallToAction\" -q)",
+      "Bash(cp \"docs/tanjes images/unnamed.jpg\" src/assets/facility-ward-twin.jpg)",
+      "Bash(cp \"docs/tanjes images/unnamed2.jpg\" src/assets/facility-lab.jpg)",
+      "Bash(cp \"docs/tanjes images/unnamed3.jpg\" src/assets/facility-private-room.jpg)",
+      "Bash(cp \"docs/tanjes images/unnamed4.jpg\" src/assets/facility-recovery.jpg)",
+      "Bash(git commit -m ' *)",
+      "Bash(git check-ignore *)",
+      "Bash(git worktree *)",
+      "Bash(npm test *)",
+      "Bash(node -e \"require\\('lottie-react'\\)\")",
+      "Bash(git commit *)",
+      "Bash(node -e \"const pkg = require\\('./node_modules/@testing-library/user-event/package.json'\\); console.log\\(pkg.version\\)\")",
+      "Bash(node -e \"const pkg = require\\('./node_modules/vitest/package.json'\\); console.log\\(pkg.version\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(npx eslint *)",
+      "Bash(php --version)",
+      "Bash(composer --version)",
+      "Bash(mysql --version)",
+      "Bash(mysql -u root -e \"CREATE DATABASE IF NOT EXISTS tannjes_backend CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;\")",
+      "Bash(mysql -u root -e \"SHOW DATABASES LIKE 'tannjes_backend';\")",
+      "Bash(tasklist)",
+      "Read(//c/wamp64/bin/mysql/**)",
+      "Read(//c/wamp64/bin/mariadb/**)",
+      "Bash(\"C:/wamp64/bin/mysql/mysql9.1.0/bin/mysqld.exe\" --defaults-file=\"C:/wamp64/bin/mysql/mysql9.1.0/my.ini\" --console)",
+      "Bash(mysql -u root -e \"SHOW DATABASES;\")",
+      "Bash(composer require *)",
+      "Bash(rm -rf \"c:/Users/ADMIN/Downloads/tannjes-care-portal-backend\")",
+      "Bash(composer create-project *)"
     ]
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "shadcn"
+  ]
 }
