@@ -41,7 +41,10 @@ export const FacilitiesTeaser = () => (
           </Link>
         </Reveal>
         <Reveal delay={0.1}>
-          <Link to="/facilities" className="group block overflow-hidden rounded-3xl shadow-lg ring-1 ring-white">
+          <Link
+            to="/facilities"
+            className="group relative block overflow-hidden rounded-3xl shadow-lg ring-1 ring-white"
+          >
             <div className="aspect-[16/10] overflow-hidden">
               <img
                 src={facilityLab}
@@ -49,14 +52,21 @@ export const FacilitiesTeaser = () => (
                 className="h-full w-full object-cover transition [transition-duration:1500ms] ease-out group-hover:scale-110"
               />
             </div>
-            <div className="bg-white p-5">
-              <p className="text-xs font-semibold uppercase tracking-wider text-brand-pink">Diagnostics</p>
-              <h3 className="mt-1 font-display text-lg font-bold text-brand-navy">On-site Laboratory</h3>
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/10 to-transparent" aria-hidden />
+            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <p className="text-xs font-semibold uppercase tracking-wider text-white/80">Diagnostics</p>
+              <h3 className="mt-1 font-display text-2xl font-bold">On-site Laboratory</h3>
+              <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-pink-soft transition group-hover:gap-2">
+                Take the tour <ArrowRight className="h-4 w-4" />
+              </span>
             </div>
           </Link>
         </Reveal>
         <Reveal delay={0.15}>
-          <Link to="/facilities" className="group block overflow-hidden rounded-3xl shadow-lg ring-1 ring-white">
+          <Link
+            to="/facilities"
+            className="group relative block overflow-hidden rounded-3xl shadow-lg ring-1 ring-white"
+          >
             <div className="aspect-[16/10] overflow-hidden">
               <img
                 src={facilityPrivate}
@@ -64,9 +74,13 @@ export const FacilitiesTeaser = () => (
                 className="h-full w-full object-cover transition [transition-duration:1500ms] ease-out group-hover:scale-110"
               />
             </div>
-            <div className="bg-white p-5">
-              <p className="text-xs font-semibold uppercase tracking-wider text-brand-pink">Privacy</p>
-              <h3 className="mt-1 font-display text-lg font-bold text-brand-navy">Private Rooms</h3>
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/10 to-transparent" aria-hidden />
+            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <p className="text-xs font-semibold uppercase tracking-wider text-white/80">Privacy</p>
+              <h3 className="mt-1 font-display text-2xl font-bold">Private Rooms</h3>
+              <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-pink-soft transition group-hover:gap-2">
+                Take the tour <ArrowRight className="h-4 w-4" />
+              </span>
             </div>
           </Link>
         </Reveal>
