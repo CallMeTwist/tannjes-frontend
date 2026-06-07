@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { services } from "@/data/services";
 import { useSettings } from "@/hooks/useSettings";
+import logo from "@/assets/logo.png";
 
 const year = new Date().getFullYear();
 
@@ -13,8 +14,12 @@ export const Footer = () => {
     <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4 lg:px-8">
       <div>
         <div className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-pink font-bold">T</span>
-          <span className="font-display text-lg font-bold">Tannjes Clinics</span>
+          <img
+            src={logo}
+            alt="Tannjes Clinics Limited"
+            className="h-12 w-12 shrink-0 rounded-md bg-white/95 object-contain p-1"
+          />
+          <span className="font-display text-lg font-bold leading-tight">Tannjes Clinics Limited</span>
         </div>
         <p className="mt-3 text-sm text-white/75">Your health, your call. Premium medical concierge — 24/7 in Abuja and beyond.</p>
         <p className="mt-3 text-xs text-white/55">RC: 1355314</p>

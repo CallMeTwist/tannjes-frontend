@@ -4,6 +4,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useSettings } from "@/hooks/useSettings";
+import logo from "@/assets/logo.png";
 
 const links = [
   { to: "/about", label: "About" },
@@ -41,13 +42,22 @@ export const Navbar = () => {
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-pink text-white font-bold shadow-lg shadow-brand-pink/30">T</span>
-          <span className={cn("font-display text-lg font-bold transition-colors", transparentBg ? "text-white" : "text-brand-navy")}>
-            Tannjes Clinics
+        <Link to="/" className="flex min-w-0 items-center gap-2">
+          <img
+            src={logo}
+            alt="Tannjes Clinics Limited"
+            className="h-12 w-12 shrink-0 object-contain"
+          />
+          <span
+            className={cn(
+              "font-display text-base font-bold leading-tight whitespace-nowrap transition-colors lg:text-lg",
+              transparentBg ? "text-white" : "text-brand-navy"
+            )}
+          >
+            Tannjes Clinics Limited
           </span>
         </Link>
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           {links.map((l) => (
             <NavLink
               key={l.to}
@@ -64,7 +74,7 @@ export const Navbar = () => {
             </NavLink>
           ))}
         </nav>
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <a
             href={`tel:${settings.phone_primary}`}
             className={cn(
@@ -79,7 +89,7 @@ export const Navbar = () => {
           </Button>
         </div>
         <button
-          className={cn("md:hidden transition-colors", transparentBg ? "text-white" : "text-brand-navy")}
+          className={cn("lg:hidden transition-colors", transparentBg ? "text-white" : "text-brand-navy")}
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >
@@ -87,7 +97,7 @@ export const Navbar = () => {
         </button>
       </div>
       {open && (
-        <div className="border-t border-white/10 bg-white/95 backdrop-blur-xl md:hidden">
+        <div className="border-t border-white/10 bg-white/95 backdrop-blur-xl lg:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-3">
             {links.map((l) => (
               <NavLink
