@@ -14,6 +14,7 @@ import DepartmentDetail from "./pages/DepartmentDetail.tsx";
 import PatientRegister from "./pages/patient/Register.tsx";
 import PatientLogin from "./pages/patient/Login.tsx";
 import PatientPay from "./pages/patient/Pay.tsx";
+import PatientPortal from "./pages/patient/Portal.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { PatientAuthProvider } from "@/hooks/usePatientAuth";
 
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/patient/register" element={<PatientRegister />} />
             <Route path="/patient/login" element={<PatientLogin />} />
             <Route path="/patient/pay" element={<PatientPay />} />
+            <Route path="/patient/portal" element={<PatientPortal />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
