@@ -21,12 +21,12 @@ export const Contact = () => {
   const [submitted, setSubmitted] = useState<Vals | null>(null);
   const { register, handleSubmit, formState: { errors } } = useForm<Vals>({ resolver: zodResolver(schema) });
 
-  const buildBody = (v: Vals) => `Name: ${v.name}\nPhone: ${v.phone}\nEmail: ${v.email || "—"}\n\n${v.message}`;
+  const buildBody = (v: Vals) => `Name: ${v.name}\nPhone: ${v.phone}\nEmail: ${v.email || "Not given"}\n\n${v.message}`;
 
   return (
     <section id="contact" className="bg-brand-cream py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading eyebrow="Get in Touch" title="We're a phone call away — 24/7." />
+        <SectionHeading eyebrow="Get in Touch" title="Call us any time, day or night." />
         <div className="mt-14 grid gap-10 md:grid-cols-2">
           <div className="space-y-4">
             <div className="flex gap-3">
@@ -107,7 +107,7 @@ export const Contact = () => {
                 </a>
                 <a
                   href={buildMailtoUrl({
-                    subject: "Tannjes Clinics — website message",
+                    subject: "Tannjes Clinics: website message",
                     body: buildBody(submitted),
                   })}
                   className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-navy px-4 py-2 text-sm font-semibold text-white hover:bg-brand-navy/90"

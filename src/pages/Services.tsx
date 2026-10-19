@@ -13,15 +13,15 @@ import aboutCare from "@/assets/about-care.jpg";
 const ServicesPage = () => (
   <SiteLayout>
     <SEO
-      title="Medical Services in Abuja — Doctors, Nursing, Diagnostics"
-      description="Doctor home visits, skilled nursing, geriatric care, paediatrics, diagnostics, telemedicine and medical escort — full-service concierge healthcare in Abuja."
+      title="Medical Services in Abuja: Doctors, Nursing, Diagnostics"
+      description="Doctor home visits, skilled nursing, geriatric care, paediatrics, diagnostics, telemedicine and medical escort in Abuja."
     />
     <PageHero
       eyebrow="Our Services"
       title={<>Care that <span className="text-brand-pink">comes to you</span>.</>}
-      subtitle="Seven concierge service lines designed for real life — from doctor visits at home to skilled nursing, palliative care and medical escort."
+      subtitle="Seven services, from doctor visits at home to skilled nursing, palliative care and medical escort."
       image={aboutCare}
-      crumbs={[{ label: "Home", to: "/" }, { label: "Services" }]}
+      crumbs={[{ label: "Hospital", to: "/hospital" }, { label: "Services" }]}
     />
 
     <section className="relative overflow-hidden bg-white py-20">
@@ -47,22 +47,13 @@ const ServicesPage = () => (
                     <img
                       src={s.image}
                       alt={s.title}
-                      className="aspect-[4/3] h-full w-full object-cover transition duration-700 hover:scale-105"
+                      className="aspect-[4/3] h-full w-full object-cover object-[center_30%] transition duration-700 hover:scale-105"
                     />
                   </div>
                 </div>
               </Reveal>
               <Reveal delay={0.1}>
-                <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-pink-soft text-brand-pink">
-                  <s.icon className="h-6 w-6" />
-                </span>
-                <SectionHeading
-                  eyebrow={`Service 0${i + 1}`}
-                  align="left"
-                  title={s.title}
-                  subtitle={s.description}
-                  className="mt-5"
-                />
+                <SectionHeading align="left" title={s.title} subtitle={s.description} />
                 <ul className="mt-6 space-y-2 text-sm text-brand-navy">
                   {s.bullets.map((b) => (
                     <li key={b} className="flex items-start gap-2">
@@ -90,7 +81,7 @@ const ServicesPage = () => (
             <img
               src={facilityLab}
               alt="Tannjes diagnostic laboratory"
-              className="h-full w-full object-cover transition duration-700 hover:scale-105"
+              className="h-full w-full object-cover object-[center_30%] transition duration-700 hover:scale-105"
             />
           </div>
         </Reveal>
@@ -99,7 +90,7 @@ const ServicesPage = () => (
             eyebrow="Diagnostics & Laboratory"
             align="left"
             title="On-site lab and modern diagnostic workflows."
-            subtitle="Our in-house laboratory and partner network deliver fast turnaround on routine and advanced tests — with sample collection at your home or office when needed."
+            subtitle="Our in-house laboratory and partner network deliver fast turnaround on routine and advanced tests, and can collect samples at your home or office."
           />
           <ul className="mt-6 space-y-2 text-sm text-brand-navy">
             <li>• Full panel haematology and biochemistry</li>

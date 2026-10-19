@@ -1,12 +1,12 @@
 import type { LucideIcon } from "lucide-react";
 import { Stethoscope, HeartPulse, Home, HandHeart, Syringe, Plane, Baby } from "lucide-react";
 import heroDoctor from "@/assets/hero-doctor.jpg";
-import serviceElderly from "@/assets/service-elderly.jpg";
-import serviceHome from "@/assets/service-home.jpg";
-import serviceNursing from "@/assets/service-nursing.jpg";
+import elderlyWheelchair from "@/assets/care/elderly-wheelchair.jpeg";
+import ambulanceTransfer from "@/assets/care/ambulance-transfer.jpeg";
+import careTeam from "@/assets/care/care-team.jpeg";
 import serviceNewborn from "@/assets/service-newborn.jpg";
-import ctaFamily from "@/assets/cta-family.jpg";
-import facilityRecovery from "@/assets/facility-recovery.jpg";
+import hospiceRoom from "@/assets/care/hospice-room.jpeg";
+import conciergeAir from "@/assets/care/concierge-air-transfer.jpeg";
 
 export type Service = {
   slug: string;
@@ -21,7 +21,7 @@ export const services: Service[] = [
   {
     slug: "doctor-at-home",
     title: "Doctor at Home, Hotel, or Workplace",
-    description: "Personalized medical care delivered to your doorstep — anywhere in Abuja.",
+    description: "Medical care at your home, hotel or office, anywhere in Abuja.",
     icon: Stethoscope,
     bullets: ["Home, office and hotel visits", "Routine screening referrals", "Lifestyle and nutrition counselling"],
     image: heroDoctor,
@@ -29,10 +29,10 @@ export const services: Service[] = [
   {
     slug: "geriatrics",
     title: "Geriatrics Care (Elderly Comfort)",
-    description: "Dignified, compassionate care for elderly loved ones and their families.",
+    description: "Medical care and daily support for elderly people and their families.",
     icon: HeartPulse,
     bullets: ["General medical and surgical care", "Incontinence and neurological support", "Stabilization and daily living assistance"],
-    image: serviceElderly,
+    image: elderlyWheelchair,
   },
   {
     slug: "hospital-to-home",
@@ -40,15 +40,15 @@ export const services: Service[] = [
     description: "Smooth transition from hospital discharge to recovery at home.",
     icon: Home,
     bullets: ["Post-surgery and chronic illness care", "Family and physician coordination", "Goal-oriented recovery support"],
-    image: serviceHome,
+    image: ambulanceTransfer,
   },
   {
     slug: "palliative",
     title: "Palliative Care",
-    description: "Holistic comfort and quality-of-life care for patients with serious illness.",
+    description: "Comfort care and symptom relief for patients with serious illness.",
     icon: HandHeart,
     bullets: ["Pain management and feeding assistance", "Psychological and emotional support", "Daily living and family support"],
-    image: ctaFamily,
+    image: hospiceRoom,
   },
   {
     slug: "skilled-nursing",
@@ -56,15 +56,15 @@ export const services: Service[] = [
     description: "Post-operative and post-hospitalization nursing by trained professionals.",
     icon: Syringe,
     bullets: ["High-level surgical and custodial care", "NGT/PEG nutrition therapy", "Wound, tracheostomy and colostomy care"],
-    image: serviceNursing,
+    image: careTeam,
   },
   {
     slug: "medical-escort",
     title: "Medical Escort Services",
-    description: "Safe, professional medical travel — by land or air, anywhere needed.",
+    description: "Safe medical travel by land or air.",
     icon: Plane,
     bullets: ["Land and air medical concierge", "Medical evacuation support", "Network of partner hospitals nationwide"],
-    image: facilityRecovery,
+    image: conciergeAir,
   },
   {
     slug: "newborn-caregiver",

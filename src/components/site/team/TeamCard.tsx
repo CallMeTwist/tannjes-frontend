@@ -52,16 +52,11 @@ const TeamCardImpl = ({
               "
             />
           </div>
-          {/* Soft accent shape behind portrait */}
-          <div
-            aria-hidden
-            className="absolute -inset-2 -z-10 rounded-[32px] bg-gradient-to-br from-brand-pink/15 via-transparent to-brand-navy/10 blur-2xl"
-          />
         </div>
 
         {/* Content */}
         <div className="flex flex-col gap-5 md:col-span-7">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-brand-pink">
+          <p className="text-sm font-semibold text-brand-pink">
             {member.role}
           </p>
 
@@ -73,7 +68,7 @@ const TeamCardImpl = ({
           </h3>
 
           {member.credentials && (
-            <p className="text-xs font-medium uppercase tracking-[0.16em] text-brand-slate/60">
+            <p className="text-sm text-brand-slate/70">
               {member.credentials}
             </p>
           )}

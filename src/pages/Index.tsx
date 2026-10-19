@@ -14,8 +14,8 @@ import TeamPreview from "@/components/site/TeamPreview";
 const Index = () => (
   <SiteLayout>
     <SEO
-      title="Tannjes Clinics — Compassionate 24/7 Healthcare in Abuja"
-      description="Premium home-based and hospital medical concierge services in Abuja. Doctors, skilled nursing, geriatrics, paediatrics and more — available 24/7."
+      title="Tannjes Clinics | 24/7 Healthcare in Abuja"
+      description="Home-based and hospital medical concierge services in Abuja. Doctors, skilled nursing, geriatrics, paediatrics and more, available 24/7."
     />
     <Hero />
     <StatsStrip />

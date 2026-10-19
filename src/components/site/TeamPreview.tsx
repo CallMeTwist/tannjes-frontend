@@ -9,7 +9,6 @@ export const TeamPreview = () => {
   return (
   <section id="team" className="relative overflow-hidden bg-white py-24">
     <div className="absolute inset-0 texture-waves opacity-70" aria-hidden />
-    <div className="absolute -right-24 top-12 h-72 w-72 rounded-full bg-sky-soft/80 blur-3xl" aria-hidden />
     <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <SectionHeading
         animate
@@ -33,7 +32,7 @@ export const TeamPreview = () => {
               </div>
               <div className="p-5">
                 <h3 className="font-display text-lg font-bold text-brand-navy">{m.name}</h3>
-                <p className="text-xs font-semibold uppercase tracking-wider text-brand-pink">{m.role}</p>
+                <p className="text-sm font-semibold text-brand-pink">{m.role}</p>
                 <p className="mt-2 text-sm text-brand-slate">{m.bio}</p>
               </div>
             </article>

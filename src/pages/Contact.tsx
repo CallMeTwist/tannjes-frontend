@@ -8,7 +8,7 @@ import ctaFamily from "@/assets/cta-family.jpg";
 const ContactPage = () => (
   <SiteLayout>
     <SEO
-      title="Contact Tannjes Clinics — 24/7 Medical Concierge in Abuja"
+      title="Contact Tannjes Clinics | 24/7 Medical Concierge in Abuja"
       description="Reach Tannjes Clinics any time of day for appointments, urgent care coordination, and medical concierge support across Abuja."
     />
     <PageHero
@@ -16,7 +16,7 @@ const ContactPage = () => (
       title={<>We're a phone call <span className="text-brand-pink">away</span>.</>}
       subtitle="24/7 support for medical concierge, appointments, and urgent care coordination across Abuja."
       image={ctaFamily}
-      crumbs={[{ label: "Home", to: "/" }, { label: "Contact" }]}
+      crumbs={[{ label: "Hospital", to: "/hospital" }, { label: "Contact" }]}
     />
     <AppointmentStrip />
     <Contact />

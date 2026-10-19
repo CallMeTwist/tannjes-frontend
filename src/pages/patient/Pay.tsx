@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { usePatientAuth } from "@/hooks/usePatientAuth";
 import { submitPayment } from "@/lib/patientApi";
 
-const CONSULTATION_FEE = 15000; // NGN — adjust to clinic's fee
+const CONSULTATION_FEE = 15000; // NGN; adjust to the clinic's fee
 const BANK = { name: "Tannjes Clinics Ltd", bank: "Zenith Bank", account: "1012345678" };
 
 const Pay = () => {
@@ -21,7 +21,7 @@ const Pay = () => {
   const [done, setDone] = useState(false);
 
   if (patient && patient.status !== "pending_payment" && !done) {
-    // Already paid / approved — send to portal.
+    // Already paid or approved, so send to the portal.
     navigate("/patient/portal", { replace: true });
   }
 

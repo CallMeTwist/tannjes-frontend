@@ -30,9 +30,9 @@ describe("EmergencySplash", () => {
       vi.advanceTimersByTime(1000);
     });
     expect(screen.getByRole("dialog")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /\+234 701 909 0013/ })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /\+234 814 449 0900/ })).toHaveAttribute(
       "href",
-      "tel:+2347019090013",
+      "tel:+2348144490900",
     );
   });
 

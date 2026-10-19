@@ -15,6 +15,7 @@ export default {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
         body: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Fraunces', 'Georgia', 'serif'],
       },
       colors: {
         brand: {
@@ -25,6 +26,19 @@ export default {
           slate: "#475569",
           cream: "#FAF7F4",
           success: "#10B981",
+        },
+        // Tannjes Home & Hospice Care. Values are RGB channels set per palette in index.css
+        // (.theme-care and [data-palette=...]), so opacity modifiers like /80 keep working.
+        care: {
+          primary: "rgb(var(--care-primary) / <alpha-value>)",
+          "primary-deep": "rgb(var(--care-primary-deep) / <alpha-value>)",
+          secondary: "rgb(var(--care-secondary) / <alpha-value>)",
+          "secondary-soft": "rgb(var(--care-secondary-soft) / <alpha-value>)",
+          cream: "rgb(var(--care-cream) / <alpha-value>)",
+          sand: "rgb(var(--care-sand) / <alpha-value>)",
+          accent: "rgb(var(--care-accent) / <alpha-value>)",
+          "accent-soft": "rgb(var(--care-accent-soft) / <alpha-value>)",
+          ink: "rgb(var(--care-ink) / <alpha-value>)",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

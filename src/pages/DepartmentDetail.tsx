@@ -23,14 +23,14 @@ const DepartmentDetail = () => {
   return (
     <SiteLayout>
       <SEO
-        title={`${name} — Tannjes Clinics Abuja`}
+        title={`${name} | Tannjes Clinics Abuja`}
         description={description || `Meet our ${name} consultants and start a telehealth consultation.`}
       />
       <PageHero
         eyebrow="Department"
         title={<>{name}</>}
         subtitle={description}
-        crumbs={[{ label: "Home", to: "/" }, { label: "Departments", to: "/departments" }, { label: name }]}
+        crumbs={[{ label: "Hospital", to: "/hospital" }, { label: "Departments", to: "/departments" }, { label: name }]}
       />
 
       <section className="relative bg-white py-16">
@@ -77,7 +77,7 @@ const DepartmentDetail = () => {
           <div className="mt-14 overflow-hidden rounded-3xl bg-brand-navy p-8 text-white sm:p-12">
             <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-xl">
-                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider ring-1 ring-white/25">
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-brand-pink-soft">
                   <Video className="h-3.5 w-3.5" /> Telehealth
                 </span>
                 <h3 className="mt-4 font-display text-2xl font-bold sm:text-3xl">
@@ -85,7 +85,7 @@ const DepartmentDetail = () => {
                 </h3>
                 <p className="mt-3 text-white/80">
                   Register as a patient, pay your consultation fee, and once approved you can message
-                  your consultant securely and view your test results — all online.
+                  your consultant securely and view your test results online.
                 </p>
                 <Link
                   to={`/patient/register?department=${slug}`}

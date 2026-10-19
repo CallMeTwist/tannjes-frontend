@@ -2,8 +2,8 @@ import { CheckCircle2 } from "lucide-react";
 import { Reveal } from "@/components/shared/Reveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import imgHome from "@/assets/service-home.jpg";
-import imgElderly from "@/assets/service-elderly.jpg";
-import imgNursing from "@/assets/service-nursing.jpg";
+import imgElderly from "@/assets/care/elderly-wheelchair.jpeg";
+import imgNursing from "@/assets/care/care-team.jpeg";
 import imgNewborn from "@/assets/service-newborn.jpg";
 
 const reasons = [
@@ -14,14 +14,14 @@ const reasons = [
     points: ["Same-day visits", "Citywide coverage in Abuja", "Equipment and supplies included"],
   },
   {
-    title: "Compassion at every step",
-    body: "Our teams are trained not just clinically, but in dignity-first care for elderly and palliative patients.",
+    title: "Trained in elderly and palliative care",
+    body: "Our teams are trained to care for elderly and palliative patients with dignity and respect.",
     image: imgElderly,
     points: ["Trauma-informed approach", "Family communication", "End-of-life sensitivity"],
   },
   {
     title: "Concierge from start to finish",
-    body: "From hospital discharge to home recovery, we coordinate physicians, nurses, and family — so you don't have to.",
+    body: "From hospital discharge to recovery at home, we coordinate the doctors, nurses and family involved.",
     image: imgNursing,
     points: ["Single point of contact", "Care plan handoff", "Pharmacy and lab logistics"],
   },
@@ -36,12 +36,11 @@ const reasons = [
 export const WhyChoose = () => (
   <section id="why" className="relative overflow-hidden bg-brand-cream py-20">
     <div className="absolute inset-0 texture-dots opacity-70" aria-hidden />
-    <div className="absolute right-0 top-20 h-80 w-80 rounded-full bg-brand-pink-soft/70 blur-3xl" aria-hidden />
     <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <SectionHeading
         animate
         eyebrow="Why Tannjes"
-        title="The concierge advantage."
+        title="Why families choose Tannjes"
         subtitle="Four reasons families across Abuja choose us for the people they love most."
       />
       <div className="mt-14 space-y-16">
@@ -56,7 +55,7 @@ export const WhyChoose = () => (
                 <img
                   src={r.image}
                   alt=""
-                  className="h-full w-full object-cover transition [transition-duration:1500ms] ease-out group-hover:scale-110"
+                  className="h-full w-full object-cover object-[center_30%] transition [transition-duration:1500ms] ease-out group-hover:scale-110"
                   width={640}
                   height={420}
                 />

@@ -13,7 +13,6 @@ const values = [
 export const About = () => (
   <section id="about" className="relative overflow-hidden bg-white py-20">
     <div className="absolute inset-0 texture-waves opacity-60" aria-hidden />
-    <div className="absolute -left-24 top-12 h-72 w-72 rounded-full bg-brand-pink-soft/60 blur-3xl" aria-hidden />
     <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
       <Reveal>
         <div className="relative">
@@ -38,8 +37,8 @@ export const About = () => (
           animate
           eyebrow="About Tannjes"
           align="left"
-          title="Premium concierge medicine, built around you."
-          subtitle="Tannjes Clinics Limited delivers compassionate, expert care wherever you need it — at home, at work, or in transit. We exist to make great healthcare effortlessly accessible."
+          title="Medical care at home, at work and in our clinic"
+          subtitle="Tannjes Clinics Limited provides medical care at home, at work or while you travel, as well as in our clinic in Abuja."
         />
         <div className="mt-8 grid grid-cols-2 gap-3 max-w-md">
           {values.map((v) => (
@@ -47,7 +46,7 @@ export const About = () => (
               key={v.label}
               className="group flex items-center gap-3 rounded-xl border border-brand-pink-soft bg-white px-3 py-2 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
             >
-              <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-pink-soft text-brand-pink transition group-hover:bg-brand-pink group-hover:text-white">
+              <span className="text-brand-pink">
                 <v.icon className="h-4 w-4" />
               </span>
               <span className="text-sm font-semibold text-brand-navy">{v.label}</span>

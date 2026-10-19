@@ -36,7 +36,7 @@ export const TeamProfileDialog = ({ member, open, onOpenChange }: Props) => {
             </div>
             <div className="flex flex-col p-6 md:col-span-3 md:p-8">
               <DialogHeader className="space-y-2 text-left">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-pink">
+                <p className="text-sm font-semibold text-brand-pink">
                   {member.role}
                 </p>
                 <DialogTitle className="font-display text-2xl font-bold text-brand-navy md:text-3xl">

@@ -64,9 +64,8 @@ export function SectionHeading({
           {...motionProps}
           variants={useAnim ? eyebrowVariants : undefined}
           transition={useAnim ? { duration: 0.7, ease, delay: 0.05 } : undefined}
-          className="inline-flex items-center gap-2 rounded-full bg-brand-pink-soft px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-pink"
+          className={cn("inline-block text-sm font-semibold", variant === "light" ? "text-brand-pink-soft" : "text-brand-pink")}
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-brand-pink" />
           {eyebrow}
         </motion.span>
       )}

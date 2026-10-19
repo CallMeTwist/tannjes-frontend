@@ -23,7 +23,7 @@ describe("Contact form", () => {
 
     const wa = await screen.findByRole("link", { name: /send via whatsapp/i });
     const mail = screen.getByRole("link", { name: /send via email/i });
-    expect(wa.getAttribute("href")).toMatch(/^https:\/\/wa\.me\/2347019090013/);
+    expect(wa.getAttribute("href")).toMatch(/^https:\/\/wa\.me\/2348144490900/);
     expect(mail.getAttribute("href")).toMatch(/^mailto:tannjes03@gmail\.com/);
   });
 });

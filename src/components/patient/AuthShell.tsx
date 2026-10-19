@@ -14,7 +14,7 @@ export const AuthShell = ({ title, subtitle, badge, children, footer }: Props) =
     {/* Brand panel */}
     <div className="relative hidden overflow-hidden bg-brand-navy p-12 text-white lg:flex lg:flex-col lg:justify-between">
       <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_20%_30%,rgba(225,29,116,0.35),transparent_60%)]" aria-hidden />
-      <Link to="/" className="relative inline-flex items-center gap-2 font-display text-xl font-bold">
+      <Link to="/hospital" className="relative inline-flex items-center gap-2 font-display text-xl font-bold">
         <HeartPulse className="h-6 w-6 text-brand-pink" /> Tannjes Clinics
       </Link>
       <div className="relative max-w-md">
@@ -23,7 +23,7 @@ export const AuthShell = ({ title, subtitle, badge, children, footer }: Props) =
         </h2>
         <p className="mt-4 text-white/80">
           Register once, pay your consultation fee, and consult our specialists securely from
-          anywhere — plus view your test results online.
+          anywhere, and view your test results online.
         </p>
       </div>
       <p className="relative text-sm text-white/50">Abuja, Nigeria</p>

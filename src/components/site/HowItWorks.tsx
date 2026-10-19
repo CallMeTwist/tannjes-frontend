@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 const steps = [
   { icon: PhoneCall, title: "Reach out", body: "Call, WhatsApp, or fill our 60-second form. We pick up 24/7." },
   { icon: ClipboardList, title: "We assess and match", body: "We pair you with the right physician, nurse, or specialist for your need." },
-  { icon: HeartHandshake, title: "Care delivered", body: "Concierge care arrives at your door — and stays with you through recovery." },
+  { icon: HeartHandshake, title: "Care delivered", body: "Our team comes to your door and looks after you until you recover." },
 ];
 
 export const HowItWorks = () => (
@@ -28,7 +28,7 @@ export const HowItWorks = () => (
               <span className="relative z-10 mx-auto grid h-14 w-14 place-items-center rounded-full bg-brand-pink text-white shadow-lg shadow-brand-pink/40 ring-4 ring-white">
                 <s.icon className="h-6 w-6" />
               </span>
-              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-brand-pink">Step 0{i + 1}</p>
+              <p className="mt-4 text-sm font-semibold text-brand-pink">Step {i + 1}</p>
               <h3 className="mt-1 font-display text-xl font-bold text-brand-navy">{s.title}</h3>
               <p className="mt-2 text-sm text-brand-slate">{s.body}</p>
             </div>
