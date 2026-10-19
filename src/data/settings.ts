@@ -6,8 +6,8 @@ export type Settings = {
 };
 
 export const settings: Settings = {
-  phone_primary: "+2347019090013",
-  phone_secondary: "+2347086113160",
+  phone_primary: "+2348144490900",
+  phone_secondary: "+2349021801086",
   email: "tannjes03@gmail.com",
   address:
     "Drive 2, 1st Crescent, 3rd Avenue, House 38, Prince and Princess Estate, Kaura District, Abuja",

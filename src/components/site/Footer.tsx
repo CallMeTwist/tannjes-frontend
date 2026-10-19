@@ -21,12 +21,13 @@ export const Footer = () => {
           />
           <span className="font-display text-lg font-bold leading-tight">Tannjes Clinics Limited</span>
         </div>
-        <p className="mt-3 text-sm text-white/75">Your health, your call. Premium medical concierge — 24/7 in Abuja and beyond.</p>
+        <p className="mt-3 text-sm text-white/75">Medical concierge and clinic care in Abuja, available 24 hours a day.</p>
         <p className="mt-3 text-xs text-white/55">RC: 1355314</p>
       </div>
       <div>
         <h4 className="text-sm font-semibold uppercase tracking-wider text-brand-pink">Quick Links</h4>
         <ul className="mt-4 space-y-2 text-sm text-white/80">
+          <li><Link to="/" className="hover:text-white">Home &amp; Hospice Care</Link></li>
           <li><Link to="/about" className="hover:text-white">About</Link></li>
           <li><Link to="/services" className="hover:text-white">Services</Link></li>
           <li><Link to="/departments" className="hover:text-white">Departments</Link></li>

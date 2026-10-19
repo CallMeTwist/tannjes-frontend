@@ -23,3 +23,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Original, unblurred patient photos (blurred copies used by the site live in src/assets/care)
+docs/newtannjes images/
+
+# Local Claude Code preview settings
+.claude/

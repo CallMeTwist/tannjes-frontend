@@ -12,14 +12,13 @@ export const Services = () => (
         animate
         eyebrow="What We Do"
         title="Care that comes to you."
-        subtitle="Seven concierge service lines designed around real life — from doctor visits at home to skilled nursing and medical travel."
+        subtitle="Seven services, from doctor visits at home to skilled nursing and medical travel."
       />
       <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {services.map((s, i) => (
           <Reveal key={s.slug} delay={i * 0.05}>
             <article className="group relative h-full overflow-hidden rounded-2xl border border-brand-pink-soft/50 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-brand-pink/40 hover:shadow-xl">
-              <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-brand-pink-soft/0 transition group-hover:bg-brand-pink-soft/60" aria-hidden />
-              <span className="relative grid h-12 w-12 place-items-center rounded-xl bg-brand-pink-soft text-brand-pink transition group-hover:bg-brand-pink group-hover:text-white">
+              <span className="relative text-brand-pink">
                 <s.icon className="h-6 w-6" />
               </span>
               <h3 className="relative mt-5 font-display text-xl font-bold text-brand-navy">{s.title}</h3>

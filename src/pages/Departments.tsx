@@ -8,15 +8,15 @@ import facilityWardTwin from "@/assets/facility-ward-twin.jpg";
 const DepartmentsPage = () => (
   <SiteLayout>
     <SEO
-      title="Departments & Specialties — Tannjes Clinics Abuja"
+      title="Departments & Specialties | Tannjes Clinics Abuja"
       description="Sixteen medical specialties under one trusted partner: paediatrics, geriatrics, cardiology, neurology, mental health, surgery and more."
     />
     <PageHero
       eyebrow="Specialties"
-      title={<>Sixteen specialties. <span className="text-brand-pink">One trusted partner.</span></>}
-      subtitle="Coordinated, multidisciplinary expertise across every stage of care — from paediatrics to geriatrics, surgery to mental health."
+      title={<>Departments and <span className="text-brand-pink">specialties</span></>}
+      subtitle="Specialists in every area of care, from paediatrics to geriatrics and surgery to mental health."
       image={facilityWardTwin}
-      crumbs={[{ label: "Home", to: "/" }, { label: "Departments" }]}
+      crumbs={[{ label: "Hospital", to: "/hospital" }, { label: "Departments" }]}
     />
     <Departments />
     <AppointmentStrip />

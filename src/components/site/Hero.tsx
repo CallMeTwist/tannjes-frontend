@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ChevronLeft, ChevronRight, CalendarCheck, Phone, ChevronDown } from "lucide-react";
+import { ChevronLeft, ChevronRight, CalendarCheck, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSettings } from "@/hooks/useSettings";
 import heroImg from "@/assets/hero-doctor.jpg";
@@ -27,19 +27,19 @@ const slides: Slide[] = [
       </>
     ),
     subtitle:
-      "Not just better healthcare, but a better healthcare experience — delivered to your home, hotel, or workplace anywhere in Abuja.",
+      "Doctors who come to your home, hotel or workplace anywhere in Abuja, day or night.",
     zoom: "in",
   },
   {
     image: aboutImg,
-    eyebrow: "Premium Home Care",
+    eyebrow: "Home Care",
     title: (
       <>
-        Bettering the <span className="text-brand-pink">human condition.</span>
+        Care for you <span className="text-brand-pink">and your family.</span>
       </>
     ),
     subtitle:
-      "Licensed physicians, skilled nurses, and modern diagnostics — orchestrated around you and your family with discretion.",
+      "Licensed doctors, skilled nurses and modern diagnostics, arranged around your family's needs.",
     zoom: "out",
   },
   {
@@ -47,11 +47,11 @@ const slides: Slide[] = [
     eyebrow: "16+ Specialties",
     title: (
       <>
-        Medicine that <span className="text-brand-pink">touches the world.</span>
+        Specialists <span className="text-brand-pink">when you need them.</span>
       </>
     ),
     subtitle:
-      "From paediatrics to geriatrics, surgery to mental health — book the right specialist in minutes, day or night.",
+      "We cover paediatrics to geriatrics and surgery to mental health. Book a specialist day or night.",
     zoom: "in",
   },
 ];
@@ -131,9 +131,8 @@ export const Hero = () => {
                   exit: { opacity: 0, y: -20 },
                 }}
                 transition={{ duration: 0.7, ease, delay: 0.05 }}
-                className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white ring-1 ring-white/25 backdrop-blur"
+                className="inline-block text-sm font-semibold text-brand-pink-soft"
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-brand-pink" />
                 {slides[selected].eyebrow}
               </motion.span>
 
@@ -205,17 +204,6 @@ export const Hero = () => {
       >
         <ChevronRight className="h-6 w-6" />
       </button>
-
-      <motion.div
-        aria-hidden
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: [8, 0, 8] }}
-        transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute bottom-20 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center text-white/70 md:flex"
-      >
-        <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">Scroll</span>
-        <ChevronDown className="mt-1 h-4 w-4" />
-      </motion.div>
 
       <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 sm:bottom-10">
         {slides.map((_, i) => (

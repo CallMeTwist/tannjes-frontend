@@ -11,24 +11,24 @@ import aboutImg from "@/assets/about-care.jpg";
 import facilityRecovery from "@/assets/facility-recovery.jpg";
 
 const values = [
-  { icon: Heart, label: "Compassion", body: "Care that honours dignity and the human moment first — every patient, every visit." },
-  { icon: Lightbulb, label: "Innovation", body: "Modern diagnostics, telemedicine, and concierge logistics built around your life." },
-  { icon: ShieldCheck, label: "Trust", body: "Licensed clinicians, documented care plans, and transparent communication at every step." },
+  { icon: Heart, label: "Compassion", body: "We treat every patient with dignity and kindness." },
+  { icon: Lightbulb, label: "Innovation", body: "Modern diagnostics, telemedicine and home visits." },
+  { icon: ShieldCheck, label: "Trust", body: "Licensed clinicians, written care plans and clear communication with families." },
   { icon: Sparkles, label: "Extraordinary Care", body: "Hospitality-grade service paired with the rigour of evidence-based medicine." },
 ];
 
 const About = () => (
   <SiteLayout>
     <SEO
-      title="About Tannjes Clinics — Compassionate Medical Concierge in Abuja"
+      title="About Tannjes Clinics | Medical Concierge in Abuja"
       description="Tannjes Clinics Limited (RC: 1355314) delivers hospital-grade care at home, at work, or on the move. Learn our story, mission, and values."
     />
     <PageHero
       eyebrow="About Tannjes"
-      title={<>Healthcare reimagined — <span className="text-brand-pink">around you</span>.</>}
-      subtitle="A registered Nigerian medical concierge built on compassion, clinical excellence, and the conviction that great healthcare should come to you."
+      title={<>About <span className="text-brand-pink">Tannjes Clinics</span></>}
+      subtitle="A registered Nigerian medical concierge company providing care at home, at work and in our Abuja clinic."
       image={facilityRecovery}
-      crumbs={[{ label: "Home", to: "/" }, { label: "About" }]}
+      crumbs={[{ label: "Hospital", to: "/hospital" }, { label: "About" }]}
     />
 
     <section className="relative overflow-hidden bg-white py-20">
@@ -46,23 +46,23 @@ const About = () => (
           <SectionHeading
             eyebrow="Our Story"
             align="left"
-            title="Built for Abuja families. Trusted across Nigeria."
-            subtitle="Tannjes Clinics Limited (RC: 1355314) was founded to remove the friction between people and great medicine. From doctor visits at home to skilled nursing, palliative care and medical escort, we deliver hospital-grade care wherever it's needed — with the warmth of a family physician."
+            title="Our story"
+            subtitle="Tannjes Clinics Limited (RC: 1355314) was founded to make good medical care easier to get. From doctor visits at home to skilled nursing, palliative care and medical escort, we provide hospital-standard care wherever it is needed."
           />
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             <div className="rounded-2xl border border-brand-pink-soft bg-white p-5 shadow-sm">
               <div className="flex items-center gap-2 text-brand-pink">
                 <Target className="h-5 w-5" />
-                <p className="text-xs font-semibold uppercase tracking-wider">Mission</p>
+                <p className="text-sm font-semibold">Mission</p>
               </div>
-              <p className="mt-2 text-sm text-brand-navy">To deliver compassionate, expert healthcare wherever life happens — at home, at work, in transit.</p>
+              <p className="mt-2 text-sm text-brand-navy">To provide expert, compassionate healthcare at home, at work and while travelling.</p>
             </div>
             <div className="rounded-2xl border border-brand-pink-soft bg-white p-5 shadow-sm">
               <div className="flex items-center gap-2 text-brand-pink">
                 <Eye className="h-5 w-5" />
-                <p className="text-xs font-semibold uppercase tracking-wider">Vision</p>
+                <p className="text-sm font-semibold">Vision</p>
               </div>
-              <p className="mt-2 text-sm text-brand-navy">A world where premium healthcare follows the patient — not the other way around.</p>
+              <p className="mt-2 text-sm text-brand-navy">Healthcare that comes to the patient, wherever they are in Nigeria.</p>
             </div>
           </div>
         </Reveal>
@@ -74,12 +74,12 @@ const About = () => (
     <section className="relative overflow-hidden bg-brand-cream py-20">
       <div className="absolute inset-0 texture-dots opacity-70" aria-hidden />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading eyebrow="Our Values" title="What we promise every patient." />
+        <SectionHeading eyebrow="Our Values" title="Our standards" />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((v, i) => (
             <Reveal key={v.label} delay={i * 0.05}>
               <div className="group h-full rounded-2xl bg-white p-6 shadow-sm ring-1 ring-brand-pink-soft/60 transition hover:-translate-y-1 hover:shadow-xl">
-                <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-pink-soft text-brand-pink transition group-hover:bg-brand-pink group-hover:text-white">
+                <span className="text-brand-pink">
                   <v.icon className="h-6 w-6" />
                 </span>
                 <h3 className="mt-5 font-display text-lg font-bold text-brand-navy">{v.label}</h3>

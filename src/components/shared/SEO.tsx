@@ -9,12 +9,14 @@ type Props = {
   description: string;
   image?: string;
   noindex?: boolean;
+  /** og:site_name and title suffix; defaults to the hospital brand. */
+  siteName?: string;
 };
 
-const SEO = ({ title, description, image = DEFAULT_IMAGE, noindex = false }: Props) => {
+const SEO = ({ title, description, image = DEFAULT_IMAGE, noindex = false, siteName = "Tannjes Clinics" }: Props) => {
   const { pathname } = useLocation();
   const canonical = `${SITE_URL}${pathname === "/" ? "" : pathname}`;
-  const fullTitle = title.includes("Tannjes") ? title : `${title} | Tannjes Clinics`;
+  const fullTitle = title.includes("Tannjes") ? title : `${title} | ${siteName}`;
 
   return (
     <Helmet prioritizeSeoTags>
@@ -28,7 +30,7 @@ const SEO = ({ title, description, image = DEFAULT_IMAGE, noindex = false }: Pro
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-      <meta property="og:site_name" content="Tannjes Clinics" />
+      <meta property="og:site_name" content={siteName} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />

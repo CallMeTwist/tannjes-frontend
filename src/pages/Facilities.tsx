@@ -10,19 +10,19 @@ import { Button } from "@/components/ui/button";
 import facilityRecovery from "@/assets/facility-recovery.jpg";
 import facilityLab from "@/assets/facility-lab.jpg";
 import facilityPrivate from "@/assets/facility-private-room.jpg";
-import facilityWardTwin from "@/assets/facility-ward-twin.jpg";
+import facilityLounge from "@/assets/care/lounge-family.jpeg";
 
 const features = [
   { icon: BedDouble, title: "Private & Shared Wards", body: "Climate-controlled rooms with adjustable beds, en-suite access, and family-friendly seating." },
   { icon: Microscope, title: "On-site Laboratory", body: "Modern haematology, biochemistry and microbiology workstations for fast turnaround." },
   { icon: Activity, title: "Diagnostic Imaging", body: "Doppler, ECG and partner imaging services for next-day reporting on most studies." },
-  { icon: ShieldCheck, title: "Infection Control", body: "Hospital-grade cleaning, sterilisation and PPE protocols across every patient touchpoint." },
+  { icon: ShieldCheck, title: "Infection Control", body: "Hospital-standard cleaning, sterilisation and PPE in every area of the clinic." },
 ];
 
 const gallery = [
   { src: facilityPrivate, label: "Private recovery room", caption: "Quiet single-occupancy rooms with X-ray screen partitions for privacy." },
-  { src: facilityWardTwin, label: "Twin ward", caption: "Shared rooms with monitored care and family-friendly visitation." },
-  { src: facilityLab, label: "Diagnostic laboratory", caption: "Microbiology, biochemistry and haematology — in-house and accredited." },
+  { src: facilityLounge, label: "Patient lounge", caption: "A bright, quiet lounge where patients and families can sit together." },
+  { src: facilityLab, label: "Diagnostic laboratory", caption: "Microbiology, biochemistry and haematology, done in-house." },
 ];
 
 const Facilities = () => {
@@ -30,15 +30,15 @@ const Facilities = () => {
   return (
     <SiteLayout>
       <SEO
-        title="Facilities — Tannjes Clinics Abuja"
-        description="Modern wards, on-site lab, private rooms and concierge logistics — a clinic purpose-built for comfortable, dignified recovery."
+        title="Facilities | Tannjes Clinics Abuja"
+        description="Modern wards, an on-site laboratory and private rooms at Tannjes Clinics in Abuja."
       />
       <PageHero
         eyebrow="Our Facilities"
         title={<>A clinic that feels <span className="text-brand-pink">like home</span>.</>}
-        subtitle="Modern wards, an on-site lab, and concierge logistics — purpose-built for comfortable, dignified recovery."
+        subtitle="Modern wards, an on-site laboratory and private rooms for recovery."
         image={facilityRecovery}
-        crumbs={[{ label: "Home", to: "/" }, { label: "Facilities" }]}
+        crumbs={[{ label: "Hospital", to: "/hospital" }, { label: "Facilities" }]}
       />
 
       <section className="relative overflow-hidden bg-white py-20">
@@ -46,14 +46,14 @@ const Facilities = () => {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Inside Tannjes"
-            title="Designed for healing — and for hospitality."
+            title="Our wards and rooms"
             subtitle="Every room is built with patient comfort in mind: quiet HVAC, accessible bathrooms, and natural light. Caregivers can stay close, families can rest easy."
           />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {features.map((f, i) => (
               <Reveal key={f.title} delay={i * 0.05}>
                 <div className="group h-full rounded-2xl bg-white p-6 shadow-sm ring-1 ring-brand-pink-soft/60 transition hover:-translate-y-1 hover:shadow-xl">
-                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-pink-soft text-brand-pink transition group-hover:bg-brand-pink group-hover:text-white">
+                  <span className="text-brand-pink">
                     <f.icon className="h-6 w-6" />
                   </span>
                   <h3 className="mt-5 font-display text-lg font-bold text-brand-navy">{f.title}</h3>
@@ -83,12 +83,10 @@ const Facilities = () => {
                   <img
                     src={g.src}
                     alt={g.label}
-                    className="h-full w-full object-cover transition [transition-duration:1500ms] ease-out group-hover:scale-110"
+                    className="h-full w-full object-cover object-[center_30%] transition [transition-duration:1500ms] ease-out group-hover:scale-110"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-navy/55 via-transparent to-transparent" aria-hidden />
-                  <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-brand-navy backdrop-blur">
-                    <span className="h-1.5 w-1.5 rounded-full bg-brand-pink" /> {g.label}
-                  </span>
+                  <span className="absolute bottom-4 left-4 text-sm font-semibold text-white">{g.label}</span>
                 </div>
                 <figcaption className="p-5">
                   <p className="text-sm text-brand-slate">{g.caption}</p>
@@ -104,7 +102,7 @@ const Facilities = () => {
         <div className="relative mx-auto flex max-w-7xl flex-col items-start gap-6 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
           <div>
             <h2 className="font-display text-3xl font-extrabold sm:text-4xl">Visit our clinic in Kaura, Abuja.</h2>
-            <p className="mt-2 text-white/85">By appointment Mon–Sat. Emergencies handled 24/7 via concierge line.</p>
+            <p className="mt-2 text-white/85">By appointment Monday to Saturday. Emergencies handled 24/7 via concierge line.</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Button asChild className="bg-white text-brand-pink hover:bg-white/90">

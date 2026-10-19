@@ -5,7 +5,7 @@ type RevealProps = {
   children: ReactNode;
   delay?: number;
   className?: string;
-  as?: "div" | "section" | "article";
+  as?: "div" | "section" | "article" | "li";
 };
 
 export function Reveal({ children, delay = 0, className, as = "div" }: RevealProps) {

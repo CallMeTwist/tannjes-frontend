@@ -21,7 +21,7 @@ export const PortalLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="grid min-h-screen bg-slate-50 lg:grid-cols-[260px_1fr]">
       <aside className="hidden flex-col border-r border-slate-200 bg-white p-5 lg:flex">
-        <NavLink to="/" className="mb-8 inline-flex items-center gap-2 font-display text-lg font-bold text-brand-navy">
+        <NavLink to="/hospital" className="mb-8 inline-flex items-center gap-2 font-display text-lg font-bold text-brand-navy">
           <HeartPulse className="h-5 w-5 text-brand-pink" /> Tannjes
         </NavLink>
         <nav className="flex-1 space-y-1">

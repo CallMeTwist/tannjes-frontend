@@ -30,7 +30,7 @@ export const TeamRail = ({ members, activeIndex, onJump }: TeamRailProps) => {
           />
         </div>
         {active && (
-          <p className="flex items-baseline gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-brand-navy/60">
+          <p className="flex items-baseline gap-2 text-xs font-semibold text-brand-navy/60">
             <span className="text-brand-pink">{String(safeIndex + 1).padStart(2, "0")}</span>
             <span className="text-brand-navy/30">/ {String(total).padStart(2, "0")}</span>
             <span className="ml-auto truncate normal-case tracking-normal text-brand-navy/70">

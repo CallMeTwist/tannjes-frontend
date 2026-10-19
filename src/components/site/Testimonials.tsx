@@ -12,7 +12,6 @@ export const Testimonials = () => {
   return (
     <section className="relative overflow-hidden bg-brand-cream py-20">
       <div className="absolute inset-0 texture-dots-pink opacity-70" aria-hidden />
-      <div className="absolute -left-32 top-24 h-72 w-72 rounded-full bg-brand-pink-soft/70 blur-3xl" aria-hidden />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading animate eyebrow="What Families Say" title="Stories from people we've cared for." />
         <div className="mt-12 overflow-hidden" ref={ref} aria-live="polite">

@@ -18,6 +18,14 @@ import PatientPortal from "./pages/patient/Portal.tsx";
 import PatientConsultations from "./pages/patient/Consultations.tsx";
 import PatientResults from "./pages/patient/Results.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import CareHome from "./pages/care/CareHome.tsx";
+import CareContact from "./pages/care/CareContact.tsx";
+import CareServicePage from "./pages/care/CareServicePage.tsx";
+import InpatientHospice from "./pages/care/InpatientHospice.tsx";
+import Families from "./pages/care/Families.tsx";
+import GettingCare from "./pages/care/GettingCare.tsx";
+import { CARE_CONTACT } from "@/data/careNav";
+import { careServices } from "@/data/careServices";
 import { PatientAuthProvider } from "@/hooks/usePatientAuth";
 
 const queryClient = new QueryClient();
@@ -30,7 +38,18 @@ const App = () => (
       <BrowserRouter>
         <PatientAuthProvider>
           <Routes>
-            <Route path="/" element={<Index />} />
+            {/* Tannjes Home & Hospice Care: the public front door */}
+            <Route path="/" element={<CareHome />} />
+            {careServices.map((s) => (
+              <Route key={s.to} path={s.to} element={<CareServicePage service={s} />} />
+            ))}
+            <Route path="/inpatient-hospice" element={<InpatientHospice />} />
+            <Route path="/families" element={<Families />} />
+            <Route path="/getting-care" element={<GettingCare />} />
+            <Route path={CARE_CONTACT} element={<CareContact />} />
+
+            {/* Tannjes Clinics Hospital */}
+            <Route path="/hospital" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/departments" element={<Departments />} />

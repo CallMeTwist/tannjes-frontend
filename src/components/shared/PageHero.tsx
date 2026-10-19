@@ -58,9 +58,7 @@ export const PageHero = ({ eyebrow, title, subtitle, image, crumbs }: Props) => 
           className="max-w-3xl"
         >
           {eyebrow && (
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider ring-1 ring-white/25 backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-pink" /> {eyebrow}
-            </span>
+            <span className="text-sm font-semibold text-brand-pink-soft">{eyebrow}</span>
           )}
           <h1 className="mt-5 font-display text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl">
             {title}

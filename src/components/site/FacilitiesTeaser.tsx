@@ -15,7 +15,7 @@ export const FacilitiesTeaser = () => (
         animate
         eyebrow="Our Facilities"
         title="Step inside our Abuja clinic."
-        subtitle="Modern wards, on-site lab, and concierge logistics — purpose-built for comfortable, dignified recovery."
+        subtitle="Modern wards, an on-site laboratory and private rooms for recovery."
       />
       <div className="mt-12 grid gap-6 md:grid-cols-3">
         <Reveal>
@@ -27,12 +27,12 @@ export const FacilitiesTeaser = () => (
               <img
                 src={facilityRecovery}
                 alt="Recovery room"
-                className="h-full w-full object-cover transition [transition-duration:1500ms] ease-out group-hover:scale-110"
+                className="h-full w-full object-cover object-[center_30%] transition [transition-duration:1500ms] ease-out group-hover:scale-110"
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/10 to-transparent" aria-hidden />
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <p className="text-xs font-semibold uppercase tracking-wider text-white/80">Inpatient Wards</p>
+              <p className="text-sm font-semibold text-white/80">Inpatient Wards</p>
               <h3 className="mt-1 font-display text-2xl font-bold">Comfortable, dignified recovery rooms</h3>
               <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-pink-soft transition group-hover:gap-2">
                 Take the tour <ArrowRight className="h-4 w-4" />
@@ -49,12 +49,12 @@ export const FacilitiesTeaser = () => (
               <img
                 src={facilityLab}
                 alt="Diagnostic lab"
-                className="h-full w-full object-cover transition [transition-duration:1500ms] ease-out group-hover:scale-110"
+                className="h-full w-full object-cover object-[center_30%] transition [transition-duration:1500ms] ease-out group-hover:scale-110"
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/10 to-transparent" aria-hidden />
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <p className="text-xs font-semibold uppercase tracking-wider text-white/80">Diagnostics</p>
+              <p className="text-sm font-semibold text-white/80">Diagnostics</p>
               <h3 className="mt-1 font-display text-2xl font-bold">On-site Laboratory</h3>
               <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-pink-soft transition group-hover:gap-2">
                 Take the tour <ArrowRight className="h-4 w-4" />
@@ -71,12 +71,12 @@ export const FacilitiesTeaser = () => (
               <img
                 src={facilityPrivate}
                 alt="Private room"
-                className="h-full w-full object-cover transition [transition-duration:1500ms] ease-out group-hover:scale-110"
+                className="h-full w-full object-cover object-[center_30%] transition [transition-duration:1500ms] ease-out group-hover:scale-110"
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/10 to-transparent" aria-hidden />
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <p className="text-xs font-semibold uppercase tracking-wider text-white/80">Privacy</p>
+              <p className="text-sm font-semibold text-white/80">Privacy</p>
               <h3 className="mt-1 font-display text-2xl font-bold">Private Rooms</h3>
               <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand-pink-soft transition group-hover:gap-2">
                 Take the tour <ArrowRight className="h-4 w-4" />

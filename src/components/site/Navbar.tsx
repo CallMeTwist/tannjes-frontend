@@ -7,6 +7,7 @@ import { useSettings } from "@/hooks/useSettings";
 import logo from "@/assets/logo.png";
 
 const links = [
+  { to: "/", label: "Home Care", end: true },
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/departments", label: "Departments" },
@@ -20,7 +21,7 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
-  const isHome = pathname === "/";
+  const isHome = pathname === "/hospital";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -42,7 +43,7 @@ export const Navbar = () => {
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex min-w-0 items-center gap-2">
+        <Link to="/hospital" className="flex min-w-0 items-center gap-2">
           <img
             src={logo}
             alt="Tannjes Clinics Limited"
@@ -62,6 +63,7 @@ export const Navbar = () => {
             <NavLink
               key={l.to}
               to={l.to}
+              end={l.end}
               className={({ isActive }) =>
                 cn(
                   "relative text-sm font-medium transition hover:text-brand-pink",
@@ -78,7 +80,7 @@ export const Navbar = () => {
           <a
             href={`tel:${settings.phone_primary}`}
             className={cn(
-              "inline-flex items-center gap-2 text-sm font-medium transition",
+              "hidden items-center gap-2 text-sm font-medium transition xl:inline-flex",
               transparentBg ? "text-white" : "text-brand-navy"
             )}
           >
@@ -103,6 +105,7 @@ export const Navbar = () => {
               <NavLink
                 key={l.to}
                 to={l.to}
+                end={l.end}
                 className={({ isActive }) =>
                   cn(
                     "rounded px-2 py-2 text-sm font-medium hover:bg-brand-pink-soft",

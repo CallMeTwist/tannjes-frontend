@@ -12,7 +12,7 @@ describe("EmergencyFloatingButton", () => {
   it("renders a tel: link to the primary number", () => {
     renderWithClient(<EmergencyFloatingButton />);
     const link = screen.getByRole("link", { name: /emergency/i });
-    expect(link).toHaveAttribute("href", "tel:+2347019090013");
+    expect(link).toHaveAttribute("href", "tel:+2348144490900");
   });
 
   it("has an accessible name mentioning emergency", () => {
